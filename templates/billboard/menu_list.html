@@ -1,0 +1,22 @@
+{% extends "site_base.html" %}
+
+
+{% block content %}
+
+<h3>Menus</h3>
+<ul>
+  {% for menu in menus %}
+  <li>
+    <p>{{menu.title}}</p>
+    <p>
+      {% for item in menu.menuitem_set.all %}
+      {{item.beer.name}} | 
+      {% endfor %}
+    </p>
+    <a href="{% url menu_preview menu.id %}">Preview</a>
+    <a href="{% url menu_edit menu.id %}">Edit</a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

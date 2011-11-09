@@ -1,0 +1,17 @@
+{% extends "site_base.html" %}
+
+{% block content %}
+<p>
+Keg T.V. is a billboard application for breweries and beer halls. Billboards are
+designed to run on flat screen T.V.'s and display a list of beers the bar serves.
+
+The bar can choose what beers are show on a billboard and change them as needed.
+Each billboard contains a Menu and Menus have set of Menu Items. Menu Items are 
+basically a beer and infomation about the beer such as beer type (IPA, Amber Ale,
+Stout, etc...), who brewed it, and where. 
+</p>
+<p>
+<a href="{% url billboard_list %}" >Billboards</a>
+</p>
+
+{% endblock %}

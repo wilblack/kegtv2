@@ -1,0 +1,84 @@
+- fields: {about: Big Double IPA, abv: null, beer_type: 1, brewery: 1, name: Tricerahops}
+  model: beers.beer
+  pk: 1
+- fields: {about: '', abv: null, beer_type: 3, brewery: 2, name: Obsidian Stout}
+  model: beers.beer
+  pk: 2
+- fields: {about: '', abv: null, beer_type: 2, brewery: 6, name: Alpha IPA}
+  model: beers.beer
+  pk: 3
+- fields: {about: '', abv: null, beer_type: 5, brewery: 3, name: SantiAmber}
+  model: beers.beer
+  pk: 4
+- fields: {about: '', abv: null, beer_type: 4, brewery: 2, name: Mirror Pond}
+  model: beers.beer
+  pk: 5
+- fields: {about: '', abv: null, beer_type: 1, brewery: 8, name: Hopstoopid}
+  model: beers.beer
+  pk: 6
+- fields: {about: '', abv: null, beer_type: 6, brewery: 9, name: Blue Moon}
+  model: beers.beer
+  pk: 7
+- fields: {about: 'A hoppy, floral, and exceptionally balanced northwest IPA.', abv: 6.7000000000000002,
+    beer_type: 2, brewery: 1, name: Total Domination}
+  model: beers.beer
+  pk: 8
+- fields: {about: '', abv: null, beer_type: 5, brewery: 11, name: Pumpkin Ale}
+  model: beers.beer
+  pk: 9
+- fields: {about: Douple IPA Text, color1: '#006600', color2: '#993300', color3: '#660033',
+    name: Double IPA}
+  model: beers.beertype
+  pk: 1
+- fields: {about: A hoppy beer., color1: '#009900', color2: '#CC6600', color3: '#990066',
+    name: IPA}
+  model: beers.beertype
+  pk: 2
+- fields: {about: 'A dark, malty beer.', color1: '#333333', color2: '#666633', color3: '#666633',
+    name: Stout}
+  model: beers.beertype
+  pk: 3
+- fields: {about: A lighter ale., color1: '#CC6600', color2: '#333399', color3: '#009933',
+    name: Pale Ale}
+  model: beers.beertype
+  pk: 4
+- fields: {about: A reddish maltier ale., color1: '#CC3300', color2: '#006666', color3: '#669900',
+    name: Amber Ale}
+  model: beers.beertype
+  pk: 5
+- fields: {about: '', color1: '#FFFFCC', color2: '#333399', color3: '#006666', name: Heffewiezen}
+  model: beers.beertype
+  pk: 6
+- fields: {about: About text, city: Eugene, name: Ninkasi, state: OR}
+  model: beers.brewery
+  pk: 1
+- fields: {about: '', city: Bend, name: Deschutes Brewery, state: OR}
+  model: beers.brewery
+  pk: 2
+- fields: {about: '', city: Albany, name: Calapooia Brewery, state: OR}
+  model: beers.brewery
+  pk: 3
+- fields: {about: '', city: Toledo, name: Twisted Snout Brwery, state: OR}
+  model: beers.brewery
+  pk: 4
+- fields: {about: '', city: Newport, name: Rogue Brewery, state: OR}
+  model: beers.brewery
+  pk: 5
+- fields: {about: '', city: Corvallis, name: Block 15, state: OR}
+  model: beers.brewery
+  pk: 6
+- fields: {about: '', city: Corvallis, name: Flat Tail Brewery, state: OR}
+  model: beers.brewery
+  pk: 7
+- fields: {about: '', city: Lagunitas, name: Lagunitas, state: CA}
+  model: beers.brewery
+  pk: 8
+- fields: {about: '', city: Somewhere, name: Blue Moon Brewery, state: TX}
+  model: beers.brewery
+  pk: 9
+- fields: {about: '', city: Paso Robles, name: Firestone Brewery, state: CA}
+  model: beers.brewery
+  pk: 10
+- fields: {about: Seasonal, city: Kennebunckport, name: Kennebunckport Brew Co., state: Maine}
+  model: beers.brewery
+  pk: 11

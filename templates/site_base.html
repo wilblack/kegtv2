@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<head>
+
+<title>{% block title %}Welcome to Keg TV{%endblock%}</title>
+
+<script src="{{ STATIC_URL }}js/jquery-1.6.4.min.js" ></script> 
+<script src="{{ STATIC_URL }}js/jquery-ui-1.8.16.custom.min.js" ></script>
+<script src="{{ STATIC_URL }}js/underscore-min.js" ></script>  
+<script src="{{ STATIC_URL }}js/backbone.js" ></script> 
+
+
+<link rel="stylesheet" href="{{ STATIC_URL }}css/jquery-ui-1.8.16.custom.css" />
+<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" />
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  {% block ready  %}{% endblock %}    
+});
+</script>
+
+{% block extrahead %}{% endblock %}
+  
+</head>
+
+<body>
+{% block header %}
+<h2>Keg TV Header</h2>
+
+{% endblock %}
+
+{% block content %} 
+  
+  
+{% endblock %}
+</body>
+<footer>
+  
+</footer>

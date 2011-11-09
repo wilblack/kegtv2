@@ -1,0 +1,54 @@
+* { border-collapse: collapse; z-index: 0; }
+
+/*----- width altering classes -----*/
+.half { display: inline-block; width: 48%; }
+.twothirds { display: inline-block; width: 66%; }
+.full { width: 100%; }
+.eighty { width: 80px; display: inline-block; }
+.ninety { width: 90px; display: inline-block; }
+.oneten { width: 110px; display: inline-block; }
+.twofiddy { width: 250px; display: inline-block; }
+.fivesixty { width: 560px; display: inline-block; ; }
+
+/*----- positioning classes -----*/
+.clearFix { clear: both }
+.center { margin-left: auto; margin-right: auto; display: block; }
+.hidden { display:none; }
+.shown { display: inline-block; }
+.left { float: left; }
+.right { float: right; }
+.topleft { position: relative; top: -10px; right: 10px; float: left; margin: 0;}
+
+/*----- UX classes -----*/
+.red { color: red }
+.error { color: red; display: none; }
+.hasError { background-color: #F88; border-color: #F00; }
+.pointer { cursor: pointer; }
+.span { display: inline-block; }
+.fauxLink { font-weight: bold; text-decoration: underline; cursor: pointer; }
+.fauxInput { color: inherit; background-color: inherit; border: none; }
+.ui-widget-header { padding: 3px 10px; font-size: 15px; }
+
+/*----- text-positioning -----*/
+.padded { padding: 10px; }
+.doublespaced { line-height: 2.5em; }
+.ui-button-text { padding: .2em .5em !important; }
+
+/*----- jQuery.dialog -----*/
+.ui-dialog-titlebar { display: none !important; }
+.overlay { display: none; padding: 30px 10px !important; }
+.overlay .button { margin-top: 20px; }
+
+.ui-autocomplete { max-height: 300px; overflow-y: auto; }
+.ui-slider .ui-widget-header { padding: 0; }
+
+/*----- ARC forms -----*/
+.formLoading { position: relative; top: 5px; left: 10px; margin-top: -4px; }
+.formLoading, .loading, .formMessage, .formError { display: none; }
+.formError { font: red; }
+.arcForm label { width: 120px; display: inline-block; text-align: right; padding: 2px 0; }
+.arcForm label + * { margin-left: 20px; }
+.button { cursor: pointer; }
+.arcForm fieldset { margin-bottom: 20px; }
+
+

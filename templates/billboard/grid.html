@@ -1,0 +1,21 @@
+<div id="menu-title" style="border:1px solid black; height:6%;">
+  {{menu.title}}
+ </div>
+
+<div class="menu-grid" style="height:88%">
+  {% for col in NCOLS %}
+  <div id="col-{{col}}" class="col left" style="height:95%;width:32%;">
+    {% for row in NROWS %}
+    <div id="{{row}}-{{col}}" class="menu-item grid-cell" style="height:23%; width:95%">
+      <p>Empty Menu Item</p>
+    </div> 
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="clearFix"></div>
+<div id="menu-footer" style="border:1px solid black; height:5%;" >
+ Footer text goes here. 
+</div>
+      

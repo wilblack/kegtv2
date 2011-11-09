@@ -1,0 +1,21 @@
+<div id="menu-title">
+  {{menu.title}}
+ </div>
+
+<div id="menu-grid">
+  {% for col in NCOLS %}
+  <div id="col-{{col}}" class="col left">
+    {% for row in NROWS %}
+    <div id="{{row}}-{{col}}" class="menu-item grid-cell">
+      <p>Empty Menu Item</p>
+    </div> 
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="clearFix"></div>
+<div id="menu-footer" >
+ Footer text goes here. 
+</div>
+      

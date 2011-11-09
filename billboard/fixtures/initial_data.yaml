@@ -1,0 +1,6 @@
+- fields: {title: Welcome to Bier One}
+  model: billboard.menu
+  pk: 1
+- fields: {title: Bier One Happy Hour Menu}
+  model: billboard.menu
+  pk: 2

@@ -1,0 +1,105 @@
+{% extends "site_base.html" %}
+
+
+
+{% block extrahead %}
+
+<link rel="stylesheet" href="{{ STATIC_URL }}css/billboard.css" />
+<script src="{{ STATIC_URL }}js/billboard.js" ></script>
+
+{% endblock %}
+{% block ready %}
+
+
+onMenu = new OnMenu({{menuItems|safe}});
+onMenu.load_grid();
+
+beerList = new Beers({{beerItems|safe}});
+beerCollectionView = new BeerCollectionView({collection:beerList, el:'#beer-list'})
+
+$( ".grid-cell" ).droppable({
+      activeClass: "ui-state-hover",
+      hoverClass: "ui-state-active",
+      drop: grid_drop,
+    });
+
+function grid_drop(event, ui){
+  /* I am not sure what event is.
+   * ui is the draggeble object that got dropped.
+   * this is the object that accepted the drop.
+   */
+
+  var beer = beerList.getByCid($(ui.draggable).attr("id"));
+  // Need to convert a beer object to a menu item. So I think I just need to
+  // add the position.
+  var position = $(this).attr("id");
+ 
+  beer.set({"position":position});
+  beer.set({"slogan":""});
+  beer.set({"csrfmiddlewaretoken": '{{ csrf_token }}' });
+  beer.set({menu_id: {{menu.id}} })
+  
+  // Add item to onMeno Collection and craete a new MenuItemView
+  onMenu.add(beer.attributes);
+  item = onMenu.at(onMenu.length-1);
+  var id = "#"+position;
+  new MenuItemView({el:$(id), model:item})
+  
+  ui.draggable.addClass("ui-state-disabled");
+  
+  
+  
+}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="">
+  <div>
+    <label>Saving these change will make them appear on your live menu.</label>
+    <button onclick="onMenu.save_all();">Save</button>
+  </div>
+  
+  
+  <div>
+    <label>Preview the live menu.</label>
+    <a href="{% url menu_preview menu.id %}" traget="_blank">http://{{ request.META.HTTP_HOST }}{% url menu_preview menu.id %}</a>
+    
+  </div>
+</div> 
+
+<div class="left"> 
+  <h2>Beer List</h2>
+    <ul id="beer-list"></ul>
+</div>
+
+<div id="billboard" class="right" style="width:800px; height:400px;">
+  {% include "billboard/grid.html" %}
+  
+</div>
+
+
+<div class="clearFix"></div>
+
+<ul>
+  <li>Width: {{WIDTH}}</li>
+  <li>Height: {{HEIGHT}}</li>
+  <li>col width: {{COL_WIDTH}}</li>
+  <li>row height: {{ROW_HEIGHT}}</li>
+</ul>
+<script type="text/template" id="beer-item">
+
+  <div id="<%= cid %>" style='background-color:<%= color1 %>;' class="beer">
+      <span class='beer-name' style='color:<%= color2 %>;'><%= name %></span>
+      <span class='beer-type' style='color:<%= color3 %>;'><%= beer_type %></span> 
+      <span class="beer-abv" style="color:red;">{{item.beer.abv}}</span>
+      <br />
+      <cite class='brewery-name'><%= brewery %> - <%= brewery_city %>, <%= brewery_state %></cite> 
+      
+ </div>
+  
+</script>
+
+
+{% endblock %}
