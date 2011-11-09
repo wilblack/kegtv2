@@ -27,7 +27,7 @@ OnMenu = Backbone.Collection.extend({
      * the MenuItemView
      * 
      */
-    alert.log("Entered load_grid")
+    console.log("Entered load_grid")
     this.each(function(item){
       var id = "#"+item.get("position");
       new MenuItemView({el:$(id), model:item});
