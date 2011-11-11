@@ -11,65 +11,7 @@
 
 <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" />
 
-<style type="text/css">
-body {background-color: #000000;}
-
-.beer-name, .brewery-name {
-  padding:5px;
-}
-
-.beer-type {
-  float:right;
-}  
-  
-.brewery-name { 
-  font-size:.8em;
-}
-
-
-#billboard {
-  width:{{WIDTH}}px;
-  height:{{HEIGHT}}px;
-  border:2px solid white;
-}
-
-#menu-title {
-  height:{{MENU_TITLE_HEIGHT}}%;
-  text-align:center;
-  color:#FFFFFF;
-  font-size:1.2em;
-  
-}
-
-#menu-grid {
-  height:{{MENU_GRID_HEIGHT}}%;
-  width:{{MENU_GRID_WIDTH}}%;
-  
-  float: left;
-  padding:0px;
-}
-
-.col {
-  height:{{COL_HEIGHT}}%;
-  width:{{COL_WIDTH}}%;
-  
-}
-
-.grid-cell {
-  height:{{GRID_CELL_HEIGHT}}%;
-  width:{{GRID_CELL_WIDTH}}%;
-  border:1px solid white;
-  padding: 10px;
-}
-
-#menu-footer {
-  height:{{MENU_FOOTER_HEIGHT}}%;
-  color:#FFFFFF;
-  font-size:1em;
-  text-align:center;
-  padding: 5px 0px 5px 0px;
-}
-</style>
+{% include "billboard/billboard_css.html" %}
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -84,22 +26,10 @@ $(document).ready(function(){
 <body>
 
 <div id="billboard">
-  {% include "billboard/grid2.html" %}
-  
+  {% include "billboard/live_grid.html" %}
 </div>
 
-<script type="text/template" id="beer-item">
-
-  <div id="<%= cid %>" style='background-color:<%= color1 %>;' class="beer">
-      <span class='beer-name' style='color:<%= color2 %>;'><%= name %></span>
-      <span class='beer-type' style='color:<%= color3 %>;'><%= beer_type %></span> 
-      <span class="beer-abv" style="color:red;"><%= abv %></span>
-      <br />
-      <cite class='brewery-name'><%= brewery %> - <%= brewery_city %>, <%= brewery_state %></cite> 
-      
- </div>
-  
-</script>
+{% include "billboard/menu_item_template.html" %}
 
 </body>  
 </html>

@@ -4,3 +4,66 @@
 - fields: {title: Bier One Happy Hour Menu}
   model: billboard.menu
   pk: 2
+- fields: {title: Test Menu}
+  model: billboard.menu
+  pk: 3
+- fields: {beer: 9, menu: 1, name: '', position: 2-1, slogan: ''}
+  model: billboard.menuitem
+  pk: 10
+- fields: {beer: 8, menu: 1, name: '', position: 3-1, slogan: ''}
+  model: billboard.menuitem
+  pk: 11
+- fields: {beer: 1, menu: 1, name: '', position: 0-0, slogan: ''}
+  model: billboard.menuitem
+  pk: 13
+- fields: {beer: 3, menu: 1, name: '', position: 0-2, slogan: ''}
+  model: billboard.menuitem
+  pk: 16
+- fields: {beer: 7, menu: 1, name: '', position: 3-0, slogan: ''}
+  model: billboard.menuitem
+  pk: 17
+- fields: {beer: 6, menu: 1, name: '', position: 3-2, slogan: ''}
+  model: billboard.menuitem
+  pk: 19
+- fields: {beer: 4, menu: 1, name: '', position: 1-2, slogan: ''}
+  model: billboard.menuitem
+  pk: 26
+- fields: {beer: 5, menu: 1, name: '', position: 1-0, slogan: ''}
+  model: billboard.menuitem
+  pk: 27
+- fields: {beer: 9, menu: 1, name: '', position: 0-1, slogan: ''}
+  model: billboard.menuitem
+  pk: 28
+- fields: {beer: 8, menu: 1, name: '', position: 2-0, slogan: ''}
+  model: billboard.menuitem
+  pk: 29
+- fields: {beer: 3, menu: 1, name: '', position: 1-1, slogan: ''}
+  model: billboard.menuitem
+  pk: 30
+- fields: {beer: 3, menu: 3, name: '', position: 1-0, slogan: ''}
+  model: billboard.menuitem
+  pk: 32
+- fields: {beer: 4, menu: 3, name: '', position: 1-1, slogan: ''}
+  model: billboard.menuitem
+  pk: 33
+- fields: {beer: 5, menu: 3, name: '', position: 2-2, slogan: ''}
+  model: billboard.menuitem
+  pk: 34
+- fields: {beer: 6, menu: 3, name: '', position: 2-0, slogan: ''}
+  model: billboard.menuitem
+  pk: 35
+- fields: {beer: 8, menu: 3, name: '', position: 2-1, slogan: ''}
+  model: billboard.menuitem
+  pk: 36
+- fields: {beer: 9, menu: 3, name: '', position: 3-0, slogan: ''}
+  model: billboard.menuitem
+  pk: 37
+- fields: {beer: 10, menu: 3, name: '', position: 0-0, slogan: ''}
+  model: billboard.menuitem
+  pk: 38
+- fields: {beer: 4, menu: 3, name: '', position: 0-2, slogan: ''}
+  model: billboard.menuitem
+  pk: 39
+- fields: {beer: 11, menu: 1, name: '', position: 2-2, slogan: ''}
+  model: billboard.menuitem
+  pk: 40

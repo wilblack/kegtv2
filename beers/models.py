@@ -31,21 +31,25 @@ class BeerType(models.Model):
     name = models.CharField(max_length=45)
     about = models.TextField(blank=True)    
     color1 = models.CharField(max_length=7,
-                             default="#CC9900",
-                             help_text="This is the menu background color for this beer type.")
+                             default="#FFFFFF",
+                             help_text="This is the menu background color for the menu item.")
     
     color2 = models.CharField(max_length=7,
-                             default="#333399",
-                             help_text="Color used to determine this type of beer.")
+                             default="#503e2b",
+                             help_text="This is the color of the beer name.")
     
     color3 = models.CharField(max_length=7,
-                             default="#006666",
-                             help_text="Color used to determine this type of beer.")
+                             default="#808094",
+                             help_text="This color is used to color the brewery name and location.")
     
     
     def __unicode__(self):
         return self.name
     
+    class Meta():
+        ordering = ['name'] 
+        
+        
 class Brewery(models.Model):
     name = models.CharField(max_length=100)
     about = models.TextField(blank=True)

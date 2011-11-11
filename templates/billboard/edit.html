@@ -5,6 +5,7 @@
 {% block extrahead %}
 
 <link rel="stylesheet" href="{{ STATIC_URL }}css/billboard.css" />
+
 <script src="{{ STATIC_URL }}js/billboard.js" ></script>
 
 {% endblock %}
@@ -88,18 +89,7 @@ function grid_drop(event, ui){
   <li>col width: {{COL_WIDTH}}</li>
   <li>row height: {{ROW_HEIGHT}}</li>
 </ul>
-<script type="text/template" id="beer-item">
 
-  <div id="<%= cid %>" style='background-color:<%= color1 %>;' class="beer">
-      <span class='beer-name' style='color:<%= color2 %>;'><%= name %></span>
-      <span class='beer-type' style='color:<%= color3 %>;'><%= beer_type %></span> 
-      <span class="beer-abv" style="color:red;">{{item.beer.abv}}</span>
-      <br />
-      <cite class='brewery-name'><%= brewery %> - <%= brewery_city %>, <%= brewery_state %></cite> 
-      
- </div>
-  
-</script>
-
+{% include "billboard/menu_item_template.html" %}
 
 {% endblock %}

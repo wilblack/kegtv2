@@ -1,12 +1,13 @@
+{# used to draw the billboard grid #}
 <div id="menu-title">
   {{menu.title}}
  </div>
 
 <div id="menu-grid">
   {% for col in NCOLS %}
-  <div id="col-{{col}}" class="col left">
+  <div id="col-{{col}}" class="col left {% if forloop.first %}first{% endif %}{% if forloop.last %}last{% endif %}">
     {% for row in NROWS %}
-    <div id="{{row}}-{{col}}" class="menu-item grid-cell">
+    <div id="{{row}}-{{col}}" class="menu-item grid-cell {% if forloop.first %}first{% endif %}{% if forloop.last %}last{% endif %}">
       <p>Empty Menu Item</p>
     </div> 
     {% endfor %}

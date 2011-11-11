@@ -26,29 +26,53 @@
 - fields: {about: '', abv: null, beer_type: 5, brewery: 11, name: Pumpkin Ale}
   model: beers.beer
   pk: 9
-- fields: {about: Douple IPA Text, color1: '#006600', color2: '#993300', color3: '#660033',
+- fields: {about: '', abv: 11.0, beer_type: 7, brewery: 12, name: Black Xantus}
+  model: beers.beer
+  pk: 10
+- fields: {about: '', abv: 5.0, beer_type: 8, brewery: 2, name: Black Butte}
+  model: beers.beer
+  pk: 11
+- fields: {about: A reddish maltier ale., color1: '#DEAF94', color2: '#8F4B25', color3: '#E38ESF',
+    name: Amber Ale}
+  model: beers.beertype
+  pk: 5
+- fields: {about: '', color1: '#FFFFFF', color2: '#503e2b', color3: '#808094', name: Bitter}
+  model: beers.beertype
+  pk: 11
+- fields: {about: '', color1: '#FFFFFF', color2: '#503e2b', color3: '#808094', name: Brown
+      Ale}
+  model: beers.beertype
+  pk: 10
+- fields: {about: Douple IPA Text, color1: '#739E72', color2: '#324531', color3: '#2F6E2D',
     name: Double IPA}
   model: beers.beertype
   pk: 1
-- fields: {about: A hoppy beer., color1: '#009900', color2: '#CC6600', color3: '#990066',
+- fields: {about: '', color1: '#FFFFCC', color2: '#333399', color3: '#006666', name: Heffewiezen}
+  model: beers.beertype
+  pk: 6
+- fields: {about: A hoppy beer., color1: '#7EA37E', color2: '#094C09', color3: '#1A531A',
     name: IPA}
   model: beers.beertype
   pk: 2
+- fields: {about: '', color1: '#CC9900', color2: '#333399', color3: '#006666', name: Imperial
+      Stout}
+  model: beers.beertype
+  pk: 7
+- fields: {about: A lighter ale., color1: '#ADAA78', color2: '#575203', color3: '#8A853B',
+    name: Pale Ale}
+  model: beers.beertype
+  pk: 4
+- fields: {about: '', color1: '#877570', color2: '#120704', color3: '#2B1D19', name: Porter}
+  model: beers.beertype
+  pk: 8
 - fields: {about: 'A dark, malty beer.', color1: '#333333', color2: '#666633', color3: '#666633',
     name: Stout}
   model: beers.beertype
   pk: 3
-- fields: {about: A lighter ale., color1: '#CC6600', color2: '#333399', color3: '#009933',
-    name: Pale Ale}
+- fields: {about: '', color1: '#FFFFFF', color2: '#503e2b', color3: '#808094', name: Wheat
+      Beer}
   model: beers.beertype
-  pk: 4
-- fields: {about: A reddish maltier ale., color1: '#CC3300', color2: '#006666', color3: '#669900',
-    name: Amber Ale}
-  model: beers.beertype
-  pk: 5
-- fields: {about: '', color1: '#FFFFCC', color2: '#333399', color3: '#006666', name: Heffewiezen}
-  model: beers.beertype
-  pk: 6
+  pk: 9
 - fields: {about: About text, city: Eugene, name: Ninkasi, state: OR}
   model: beers.brewery
   pk: 1
@@ -82,3 +106,6 @@
 - fields: {about: Seasonal, city: Kennebunckport, name: Kennebunckport Brew Co., state: Maine}
   model: beers.brewery
   pk: 11
+- fields: {about: '', city: Paso Robles, name: Firestone Walker, state: CA}
+  model: beers.brewery
+  pk: 12

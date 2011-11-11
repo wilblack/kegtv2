@@ -13,9 +13,13 @@ from math import floor
 #TODO Put these config settings in the backend
 #ASPECT_RATIO = 4.0/1.88  with toolbar
 ASPECT_RATIO = 4.0/2.25
-WIDTH = 785     # Width in pixel of display device.
+# Luke's TV WIDTH = 785     # Width in pixel of display device.
+WIDTH = 785
+
 NROWS = 4
 NCOLS = 3
+
+ABV_COLOR="red"
 
 def make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS):
     
@@ -35,12 +39,12 @@ def make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS):
             'ROW_HEIGHT':ROW_HEIGHT,
           
             'MENU_TITLE_HEIGHT':6,
-            'MENU_GRID_HEIGHT':75,
-            'MENU_GRID_WIDTH':99,
+            'MENU_GRID_HEIGHT':86,
+            'MENU_GRID_WIDTH':99.9,
             'COL_HEIGHT':99,
-            'COL_WIDTH':33,
-            'GRID_CELL_HEIGHT':21,
-            'GRID_CELL_WIDTH':95,
+            'COL_WIDTH':32.9,
+            'GRID_CELL_HEIGHT':24,
+            'GRID_CELL_WIDTH':100,
             'MENU_FOOTER_HEIGHT':5,
           }
 
@@ -65,6 +69,7 @@ def preview(request, menu_id):
     
     tv = {'menu':menu,
           'menuItems':json(menuItems),
+          'ABV_COLOR':ABV_COLOR,
           }
     
     dims = make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS)
@@ -90,7 +95,8 @@ def edit(request, menu_id):
     tv = {'menu':menu,
           'menuItems':json(menuItems),
           'beerItems':json(beerItems),
-          'request':request
+          'request':request,
+          'ABV_COLOR':ABV_COLOR,
           }
     
     dims = make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS)
