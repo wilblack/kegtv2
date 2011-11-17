@@ -2,7 +2,7 @@ from django.conf.urls.defaults import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
-
+from django.views.generic.simple import direct_to_template
 from tastypie.api import Api
 from billboard.api import MenuItemResource, MenuResource
 
@@ -15,7 +15,8 @@ v1_api.register(MenuResource())
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'kegtv.views.home', name='home'),
+    (r'^/?$', direct_to_template ,{"template":"coming_soon.html"} ),
+    #url(r'^$', 'kegtv.views.home', name='home'),
     (r'^beers/', include('beers.urls')),
     (r'^billboard/', include('billboard.urls')),
     
