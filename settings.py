@@ -114,7 +114,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'kegtv.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
                  os.path.join(ROOT_PATH,"templates") ,
