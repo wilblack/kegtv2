@@ -70,6 +70,18 @@
 - fields: {codename: delete_brewery, content_type: 11, name: Can delete brewery}
   model: auth.permission
   pk: 33
+- fields: {codename: add_displaysettings, content_type: 14, name: Can add display
+      settings}
+  model: auth.permission
+  pk: 40
+- fields: {codename: change_displaysettings, content_type: 14, name: Can change display
+      settings}
+  model: auth.permission
+  pk: 41
+- fields: {codename: delete_displaysettings, content_type: 14, name: Can delete display
+      settings}
+  model: auth.permission
+  pk: 42
 - fields: {codename: add_menu, content_type: 12, name: Can add menu}
   model: auth.permission
   pk: 34

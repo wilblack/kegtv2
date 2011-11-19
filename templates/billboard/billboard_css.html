@@ -7,11 +7,10 @@ body {background-color: #000000;}
 }
 
 .beer-name {
-  
+	text-align:center; 
 }
-
 .brewery-name, .abv { 
-  font-size:.9em;
+  font-size:.8em;
   padding:0px 3px 0px 3px;
 }
 
@@ -24,11 +23,12 @@ body {background-color: #000000;}
 #menu-title {
   height:{{MENU_TITLE_HEIGHT}}%;
   text-align:center;
-  font-size:18px; 
+  font-size:1.5em; 
   font-family:"Courier New", Helvetica;
+  font-weight:bold;
 }
 
-#menu-title, #menu-footer {color:#8C8572;}
+#menu-title, #menu-footer {color:{{TITLE_COLOR}};}
 
 #menu-grid {
   height:{{MENU_GRID_HEIGHT}}%;
@@ -41,19 +41,26 @@ body {background-color: #000000;}
 .col {
   height:{{COL_HEIGHT}}%;
   width:{{COL_WIDTH}}%;
-  border-left:3px solid #606B8C;  
+  border-left:3px solid {{TITLE_COLOR}};
+  /* border-left:3px solid #606B8C; */
 }
 
-.col.last {border-right:3px solid #606B8C;}
+.col.last {
+  border-right:3px solid {{TITLE_COLOR}};
+  /* border-right:3px solid #606B8C; */
+}
 
 .grid-cell {
   height:{{GRID_CELL_HEIGHT}}%;
   width:{{GRID_CELL_WIDTH}}%;
-  border-bottom:3px solid #606B8C;
-  /*padding: 0px 10px 10px;*/
+  /* border-bottom:3px solid #606B8C; */ 
+  border-bottom:3px solid {{TITLE_COLOR}};
 }
 
-.grid-cell.first {border-top:3px solid #606B8C;}
+.grid-cell.first {
+  /* border-top:3px solid #606B8C; */
+  border-top:3px solid {{TITLE_COLOR}};
+}
 
 #menu-footer {
   height:{{MENU_FOOTER_HEIGHT}}%;

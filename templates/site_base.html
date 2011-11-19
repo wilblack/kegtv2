@@ -8,7 +8,6 @@
 <script src="{{ STATIC_URL }}js/underscore-min.js" ></script>  
 <script src="{{ STATIC_URL }}js/backbone.js" ></script> 
 
-
 <link rel="stylesheet" href="{{ STATIC_URL }}css/jquery-ui-1.8.16.custom.css" />
 <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" />
 
@@ -18,25 +17,30 @@ $(document).ready(function(){
   {% block ready  %}{% endblock %}    
 });
 </script>
-
-{% block extrahead %}{% endblock %}
-  
+{% block extrahead %}{% endblock %}  
 </head>
 
 <body>
-<header>
-<h1>Barleyboard.com</h1>
-<p>What kind of beer do you have?</p>
-{% include "header.html" %}
-</header>
 <div id="wrapper">
-{% block content %} 
-   
-{% endblock %}
+<header class="padded">
+<h1>Barleyboard.com</h1>
+<p>What's on Tap?</p>
+</header>
+<nav class="corners-all padded accent accent-border">
+  <div>
+  <a href="/">Home</a> |
+  <a href="/billboard/">Billboards</a> | 
+  <a href="/admin/" target="_blank">Admin</a>
+  </div>
+</nav>
+
+
+<div id="content" class="padded corners-all accent-border" >
+  {% block content %}{% endblock %}
 </div>
-<footer>
+<footer class="corners-all padded accent-border">
   Footer Goes Here
 </footer>
-
+</div>
 </body>
 </html>

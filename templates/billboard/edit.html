@@ -48,8 +48,6 @@ function grid_drop(event, ui){
   
   ui.draggable.addClass("ui-state-disabled");
   
-  
-  
 }
 
 {% endblock %}
@@ -62,24 +60,19 @@ function grid_drop(event, ui){
     <button onclick="onMenu.save_all();">Save</button>
   </div>
   
-  
   <div>
     <label>Preview the live menu.</label>
-    <a href="{% url menu_preview menu.id %}" traget="_blank">http://{{ request.META.HTTP_HOST }}{% url menu_preview menu.id %}</a>
-    
+    <a href="{% url menu_show menu.id %}" traget="_blank">http://{{ request.META.HTTP_HOST }}{% url menu_show menu.id %}</a>
   </div>
 </div> 
 
-<div class="left"> 
-  <h2>Beer List</h2>
+<div id="beers" class="left padded corners-all accent-border"> 
     <ul id="beer-list"></ul>
 </div>
 
 <div id="billboard" class="right" style="width:800px; height:400px;">
   {% include "billboard/grid.html" %}
-  
 </div>
-
 
 <div class="clearFix"></div>
 
@@ -91,5 +84,5 @@ function grid_drop(event, ui){
 </ul>
 
 {% include "billboard/menu_item_template.html" %}
-
+<div class="clearFix"></div>
 {% endblock %}

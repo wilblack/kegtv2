@@ -67,6 +67,7 @@ def show(request, menu_id):
     tv = {'menu':menu,
           'menuItems':json(menuItems),
           'ABV_COLOR':ABV_COLOR,
+          'TITLE_COLOR':'#8C8572'
           }
     
     dims = make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS)

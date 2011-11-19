@@ -1,0 +1,10 @@
+- fields: {display_settings: 1, entered: !!timestamp '2011-11-19 00:43:43.499514',
+    footer: Drink a lot of beer!!!, modified: !!timestamp '2011-11-19 00:43:43.499545',
+    title: Welcome to Bier One}
+  model: billboard.menu
+  pk: 1
+- fields: {COL_HEIGHT: 99%, COL_WIDTH: 32.9%, GRID_CELL_HEIGHT: 24%, GRID_CELL_WIDTH: 100%,
+    MENU_FOOTER_HEIGHT: 5%, MENU_GRID_HEIGHT: 86%, MENU_GRID_WIDTH: 99.9%, MENU_TITLE_HEIGHT: 6%,
+    NCOLS: 3, NROWS: 4, WIDTH: 785, name: Default}
+  model: billboard.displaysettings
+  pk: 1
