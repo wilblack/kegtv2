@@ -1,6 +1,5 @@
 {% extends "site_base.html" %}
 
-
 {% block content %}
 
 <h3>Menus</h3>
@@ -13,7 +12,7 @@
       {{item.beer.name}} | 
       {% endfor %}
     </p>
-    <a href="{% url menu_preview menu.id %}">Preview</a>
+    <a href="{% url menu_show menu.id %}">Preview</a>
     <a href="{% url menu_edit menu.id %}">Edit</a>
   </li>
   {% endfor %}

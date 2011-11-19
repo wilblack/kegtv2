@@ -125,7 +125,7 @@
     is_active: true
     is_staff: true
     is_superuser: true
-    last_login: 2011-11-10 17:59:33.671191
+    last_login: 2011-11-18 22:39:35.854252
     last_name: ''
     password: sha1$52d45$84cef8ce5fea73b1c3936c11841c6b0df45cb655
     user_permissions: []

@@ -15,11 +15,19 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-  
+  window.menu_id = {{menu.id}};
   onMenu = new OnMenu({{menuItems|safe}});
-  
   onMenu.load_grid();  
+    
+  window.setTimeout(ping,5*1000);
 });
+
+function ping(){
+	  $.get("/ping/menu/"+menu_id, function(data){
+		 if (data.error)  console.log(data.error);
+		 else window.location="";
+	  });
+}
 </script>
 
 </head>
@@ -28,8 +36,6 @@ $(document).ready(function(){
 <div id="billboard">
   {% include "billboard/live_grid.html" %}
 </div>
-
 {% include "billboard/menu_item_template.html" %}
-
 </body>  
 </html>

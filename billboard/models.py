@@ -2,14 +2,16 @@ from django.db import models
 from beers.models import Beer
 
 # Create your models here.
-
-
 class Menu(models.Model):
     title = models.CharField(max_length=45)
+    footer = models.CharField(max_length=100, blank=True)
+    entered = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
     
     def __unicode__(self):
         return self.title   
     
+
 class MenuItem(models.Model):
     name = models.CharField(max_length=100)
     beer = models.ForeignKey(Beer)

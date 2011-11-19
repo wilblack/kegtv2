@@ -69,14 +69,11 @@ MenuItemView = Backbone.View.extend({
   
   render: function(){
     // variable to pass to template
-    console.log("MenuItemView: Entering render")
     var variables = make_beer_varaibles(this.model);
-    console.log(this.model)
     
     // Make attach some stuff to a template
     var template = _.template( $("#beer-item").html(), variables);
     $(this.el).empty()
-    console.log(template)
     $(this.el).html(template);
     $(this.el).css("backround-color", this.model.get("color1"));
     this.$(".beer").css("height", "100%");

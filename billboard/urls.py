@@ -7,7 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     'billboard.views',
-    url(r'preview/(?P<menu_id>\d+)/$','preview', name="menu_preview"),
+    url(r'show/(?P<menu_id>\d+)/$','show', name="menu_show"),
     url(r'edit/(?P<menu_id>\d+)/$','edit', name="menu_edit"),
     url(r'edit/menu_item/(?P<menu_item_id>\d+)/$', 'menu_item_JSON', name="menu_item_edit"),
  

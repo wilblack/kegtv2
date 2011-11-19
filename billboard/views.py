@@ -35,9 +35,7 @@ def make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS):
             'HEIGHT':HEIGHT,
             'NROWS':range(NROWS),
             'NCOLS':range(NCOLS),
-            'COL_WIDTH':COL_WIDTH,
-            'ROW_HEIGHT':ROW_HEIGHT,
-          
+                  
             'MENU_TITLE_HEIGHT':6,
             'MENU_GRID_HEIGHT':86,
             'MENU_GRID_WIDTH':99.9,
@@ -56,7 +54,7 @@ def index(request):
           }
     return render_to_response("billboard/menu_list.html", tv, context_instance=RequestContext(request))
 
-def preview(request, menu_id):
+def show(request, menu_id):
     menu = Menu.objects.get(pk=menu_id)
     menuItems = menu.menuitem_set.all()
     
@@ -65,7 +63,6 @@ def preview(request, menu_id):
         menuItems = [item.json() for item in menuItems]
     except AttributeError:
         menuItems = []
-        
     
     tv = {'menu':menu,
           'menuItems':json(menuItems),
@@ -75,7 +72,7 @@ def preview(request, menu_id):
     dims = make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS)
     tv.update(dims)
     
-    return render_to_response("billboard/preview.html", tv, context_instance=RequestContext(request))
+    return render_to_response("billboard/show.html", tv, context_instance=RequestContext(request))
     
 def edit(request, menu_id):
     

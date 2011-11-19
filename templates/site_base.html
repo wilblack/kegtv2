@@ -24,19 +24,19 @@ $(document).ready(function(){
 </head>
 
 <body>
-{% block header %}
+<header>
 <h1>Barleyboard.com</h1>
 <p>What kind of beer do you have?</p>
-
 {% include "header.html" %}
-
-{% endblock %}
-
+</header>
+<div id="wrapper">
 {% block content %} 
-  
-  
+   
 {% endblock %}
-</body>
+</div>
 <footer>
-  
+  Footer Goes Here
 </footer>
+
+</body>
+</html>
