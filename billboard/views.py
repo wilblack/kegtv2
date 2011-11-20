@@ -40,7 +40,7 @@ def make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS):
             'MENU_GRID_HEIGHT':86,
             'MENU_GRID_WIDTH':99.9,
             'COL_HEIGHT':99,
-            'COL_WIDTH':32.9,
+            'COL_WIDTH':32.5,
             'GRID_CELL_HEIGHT':24,
             'GRID_CELL_WIDTH':100,
             'MENU_FOOTER_HEIGHT':5,
