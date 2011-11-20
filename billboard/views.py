@@ -11,8 +11,8 @@ from billboard.models import Menu, MenuItem
 from math import floor
 
 #TODO Put these config settings in the backend
-#ASPECT_RATIO = 4.0/1.88  with toolbar
-ASPECT_RATIO = 4.0/2.25
+ASPECT_RATIO = 4.0/2.9  # My House 
+#ASPECT_RATIO = 4.0/2.25  #For Beir One
 # Luke's TV WIDTH = 785     # Width in pixel of display device.
 WIDTH = 785
 
