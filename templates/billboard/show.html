@@ -13,13 +13,45 @@
 -->
 {% include "billboard/billboard_css.html" %}
 
+<script type="text/template" id="menu-item">
+  <div id="<%= cid %>" class="menu-item">
+      <div class='beer-name' ><%= name %></div>
+ </div>  
+</script>
+
+<script type="text/template" id="menu-item-detail">
+  <div id="menu-item-detail-header" class="padded" >
+      <div class='beer-name' ><%= name %></div>
+	  <span class='beer-type'><%= beer_type %></span>
+      <span class="beer-abv right" ><%= abv %></span>
+  </div>  
+
+  <div id="menu-item-detail-content" class="padded">
+  <div>
+    Brewed by <span class='brewery-name' ><%= brewery %></span>
+  </div>  
+  <div class='brewery-name'><%= brewery_city %>, <%= brewery_state %> </div>
+  
+  </div>
+</script>
+
+<script type="text/template" id="ad-template">
+  <div id="menu-item-detail-header" class="padded" >
+      <div class="beer-name">Your Ad Here</div>
+ </div>
+ <h3>Visit barleyboard.com for more details</h3>
+</script>
+
 <script type="text/javascript">
 $(document).ready(function(){
   window.menu_id = {{menu.id}};
-  onMenu = new OnMenu({{menuItems|safe}});
-  onMenu.load_grid();  
-    
-  window.setTimeout(ping,5*1000);
+  beerList = new Beers({{menuItems|safe}});
+  beerCollectionView = new BeerCollectionView({collection:beerList, el:'#menu-list'})
+  menuItemDetailView = new MenuItemDetailView({collection:beerList})  
+  
+  //window.setTimeout(ping,5*1000);
+  refresh_display();
+   
 });
 
 function ping(){
@@ -28,14 +60,47 @@ function ping(){
 		 else window.location="";
 	  });
 }
+
+function refresh_display(){
+	window.setTimeout(function(){
+		  menuItemDetailView.next();
+		  refresh_display();
+	  }, 7*1000);
+}
+
+var pos = 100;
+function Scroll(){
+    //get the id of the scrolling text box.
+    obj=$("#menu-footer")[0];
+    //subtract 1 from pos and check pos value using offsetHeight, which retrieves the height of the object relative to the layout.
+    pos -=1;
+ 
+    if(pos < 0 - obj.offsetHeight+130) return;
+    //set a new height value using JavaScript style object.
+    obj.style.top=pos;
+    //finally the function calls itself using a timeout..
+    window.setTimeout( "Scroll();" ,  30);
+}
+
 </script>
 
 </head>
 <body>
 
 <div id="billboard">
-  {% include "billboard/live_grid.html" %}
+  <div id="panels">
+    <div id="panel-left" class="left">
+      <ul id="menu-list">
+      </ul>
+    </div>
+    
+    <div id="panel-right" class="left">
+      <div id="menu-detail"></div>  
+    </div>
+    <div class="clearFix"></div>
+  </div>
+  <div id="menu-footer" >{{menu.footer}}</div>
 </div>
-{% include "billboard/menu_item_template.html" %}
+
 </body>  
 </html>

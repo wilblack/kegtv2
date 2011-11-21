@@ -1,5 +1,5 @@
 //console.log = function(){return;}
-
+ACCENT_COLOR = "#075F3B"; 
 
 MenuItem = Backbone.Model.extend({ 
   defaults: {},
@@ -21,23 +21,20 @@ OnMenu = Backbone.Collection.extend({
    });
   },
   
-  
-  load_grid: function(){
-    /* Loads a Collection of MenuItems into the menu-grid via 
-     * the MenuItemView
-     * 
-     */
-    console.log("Entered load_grid")
-    this.each(function(item){
-      var id = "#"+item.get("position");
-      new MenuItemView({el:$(id), model:item});
-    });
-  }
+  load_menu: function(){
+      // Loads the menu with the beers on the menu
+	  this.each(function(item){
+	    //var id = "#"+item.get("position");
+	    new MenuItemDetailView({model:item});
+	  });	  
+  },
+    
 });
 
 Beers = Backbone.Collection.extend({
   models:BeerItem,
   url:"//",
+  
 });
 
 //-------------------- Views -------------------------------
@@ -48,28 +45,80 @@ BeerView = Backbone.View.extend({
    */
   
   className: "beer",
-  
   render: function(){
     // variable to pass to template
-    var variables = make_beer_varaibles(this.model);
+    var variables = make_beer_variables(this.model);
     
     // Make attach some stuff to a template
-    var template = _.template( $("#beer-item").html(), variables);
+    var template = _.template( $("#menu-item").html(), variables);
     this.el.innerHTML = template;
     return this;
   },
   
 });
 
+MenuItemDetailView = Backbone.View.extend({
+	/*
+	 * A view to show a single beers template. Pass in the elements as el
+	 * and the Beer model as model.
+	 */
+	initialize: function () {
+		this.el  = "#menu-detail";
+		this.active = 0;
+		this.collection = beerList;
+		this.model = this.collection.at(this.active);
+		this.next();
+	  },
+	render: function(){
+		// create the variables to pass to menu-item template
+	    var variables = make_beer_variables(this.model);
+	    
+	    // Make attach some stuff to a template
+	    var template = _.template( $("#menu-item-detail").html(), variables);
+	    $(this.el).empty()
+	    $(this.el).html(template);
+	},
+	show_beer: function(beer){
+		/*
+		 * Used to update the Menu Item Display. PAss in the 
+		 * beer model you want displayed.
+		 */
+		this.model = beer;
+		this.render();
+	},
+	next: function(that){
+		if (this.active == this.collection.length){
+			$(".menu-item").css("border","").css("background","#FFF6E8");
+			this.show_ad();
+			this.active = 0;
+		}
+		
+		var beer = this.collection.at(this.active);
+		this.show_beer(beer);
+		console.log(beer.cid)
+		$(".menu-item").css("border","").css("background","#FFF6E8");
+		$("#"+beer.cid).css("border","2px solid "+ACCENT_COLOR)
+		               .css("background", "-webkit-linear-gradient(left top, #FFD48E, #FFF6E8, #FFD48E )")
+		               .css("background", "-moz-linear-gradient( top left,#FFD48E,#FFF6E8, #FFD48E)");
+		this.active++;
+	},
+	show_ad: function(){
+		html = _.template( $("#ad-template").html());
+		$("#menu-detail").html(html);
+	}
+});
+
 MenuItemView = Backbone.View.extend({
-  // Pass the model in as model.
+  /* Pass the model in as model.	
+   * USed to populate the menu choice in edit page.  
+   */	
   initialize: function(){
     this.render();
   },
   
   render: function(){
-    // variable to pass to template
-    var variables = make_beer_varaibles(this.model);
+    // create the variables to pass to menu-item template
+    var variables = make_beer_variables(this.model);
     
     // Make attach some stuff to a template
     var template = _.template( $("#beer-item").html(), variables);
@@ -87,10 +136,11 @@ BeerCollectionView = Backbone.View.extend({
    * 
    */
   
-  initialize: function(){
+  initialize: function(draggable){
     var that = this; // so we can use that in underscore mapping function
     this._beerViews = [];
-    
+    if(!draggable) this.draggable=false;
+        
     this.collection.each(function(beer){
       that._beerViews.push(new BeerView({
         model:beer,
@@ -109,28 +159,34 @@ BeerCollectionView = Backbone.View.extend({
       $(that.el).append(dv.render().el);
     });
     
-    $( ".beer" ).draggable({ //snap: ".grid-cell",
-                             revert:"invalid", 
-                             opacity: 0.7, 
-                             helper: "clone", 
-                          });
+    if (this.draggable){
+      $( ".beer" ).draggable({ //snap: ".grid-cell",
+                               revert:"invalid", 
+                               opacity: 0.7, 
+                               helper: "clone", 
+                             });
+    }
   },
+      
 });
 
 
 //----------------------------------------------------------
 
-function make_beer_varaibles(model){
+function make_beer_variables(model){
   /* Takes in a beer models and returns a dictionary of values used
    * to render a beer menu-item. Used by MenuItemView and BeerView.
    */
+  var abv_text = "";
+  if (model.get("abv")) abv_text = "abv: "+model.get("abv")+" %"; 
+  
   variables = {'cid':model.cid,
                'color1':model.get("color1"),
                'color2':model.get("color2"),
                'color3':model.get("color3"),
                'name':model.get("name"),
                'beer_type':model.get("beer_type"),
-               'abv':model.get("abv"),
+               'abv':abv_text,
                'brewery':model.get("brewery"),
                'brewery_city':model.get("brewery_city"),
                'brewery_state':model.get("brewery_state"),

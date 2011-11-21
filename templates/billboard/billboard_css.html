@@ -1,19 +1,20 @@
 <style type="text/css">
 body {background-color: #000000;}
 .left {float:left;}
-
+.right {float:right}
+.padded {padding: 5px;}
 .beer-name {
   /* color:black !important; */
   font-size:1.8em;
   padding:5px 5px 0px 5px;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .beer-name {
-	text-align:center; 
+	text-align:center;
+	
 }
 .brewery-name, .abv { 
-  font-size:.8em;
+  font-size:1.0em;
   font-family: Arial, Helvetica, sans-serif;
   padding:0px 3px 0px 3px;
 }
@@ -21,48 +22,41 @@ body {background-color: #000000;}
 #billboard {
   width:{{WIDTH}}px;
   height:{{HEIGHT}}px;
-  /*border:2px solid white;*/
+  border:1px solid white;
 }
-
-#menu-title {
-  height:{{MENU_TITLE_HEIGHT}}%;
-  text-align:center;
-  font-size:1.5em; 
-  font-family:"Courier New", Helvetica;
-  font-weight:bold;
+#panels {
+  height:90%;
+  width:100%;
 }
-
-#menu-title, #menu-footer {color:{{TITLE_COLOR}};}
-
-#menu-grid {
-  height:{{MENU_GRID_HEIGHT}}%;
-  width:{{MENU_GRID_WIDTH}}%;
-  
-  float: left;
-  padding:0px;
+#panel-left {
+  width:33%;
+  height:100%;
 }
-
-.col {
-  height:{{COL_HEIGHT}}%;
-  width:{{COL_WIDTH}}%;
-  border-left:3px solid {{TITLE_COLOR}};
-  /* border-left:3px solid #606B8C; */
+#panel-right {
+  width:66%;
+  height:100%;
+  border:2px solid #075F3B;
 }
-
-.col.last {
-  border-right:3px solid {{TITLE_COLOR}};
-  /* border-right:3px solid #606B8C; */
-}
-
-.grid-cell {
-  height:{{GRID_CELL_HEIGHT}}%;
-  width:{{GRID_CELL_WIDTH}}%;
-  /* border-bottom:3px solid #606B8C; */ 
-  border-bottom:3px solid {{TITLE_COLOR}};
-  
+#menu-detail {
+  height:100%;
   background: -webkit-linear-gradient(left top, #FFD48E, #FFF6E8, #FFD48E );
   background: -moz-linear-gradient( top left,#FFD48E,#FFF6E8, #FFD48E);
-  
+}
+
+#menu-item-detail-header {
+  border:2px solid #075F3B;
+  font-size:1.8em;
+}
+
+
+
+ul { list-style-type:none; padding:0;}
+
+#menu-footer {color:{{TITLE_COLOR}};}
+.menu-item {
+  margin-bottom:3px;
+  background-color:white;
+  background:#FFD48E;
 }
 
 .grid-cell.first {
