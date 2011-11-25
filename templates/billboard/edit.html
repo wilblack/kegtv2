@@ -1,10 +1,12 @@
 {% extends "site_base.html" %}
 
 
-
 {% block extrahead %}
-
+<!-- 
 <link rel="stylesheet" href="{{ STATIC_URL }}css/billboard.css" />
+-->
+{% include "billboard/billboard_css.html" %}
+{% include "billboard/menu_item.html" %}
 
 <script src="{{ STATIC_URL }}js/billboard.js" ></script>
 
@@ -12,11 +14,23 @@
 {% block ready %}
 
 
-onMenu = new OnMenu({{menuItems|safe}});
-onMenu.load_menu();
+$("#panel-right").hide();
+$("#billboard").css("width","300px");
+$("#panel-left #menu-list").css("width","250px");
 
-beerList = new Beers({{beerItems|safe}});
-beerCollectionView = new BeerCollectionView({collection:beerList, el:'#beer-list'})
+window.menu_id = {{menu.id}};
+// These are the beers on the Menu
+beerList = new Beers({{menuItems|safe}});
+console.log("making beerCollectionView")
+beerCollectionView = new BeerCollectionView({collection:beerList, el:'#menu-list'});
+//menuItemDetailView = new MenuItemDetailView({collection:beerList});
+
+// These are beers that can be chosen
+console.log("making choises")
+choices = new Beers({{beerItems|safe}});
+console.log("making choisesCollectionView")
+choicesCollectionView = new BeerCollectionView({collection:choices, el:'#beer-list'});
+
 
 $( ".grid-cell" ).droppable({
       activeClass: "ui-state-hover",
@@ -66,16 +80,17 @@ function grid_drop(event, ui){
   </div>
 </div> 
 
+<div>
 <div id="beers" class="left padded corners-all accent-border"> 
     <ul id="beer-list"></ul>
 </div>
 
-<div id="billboard" class="right" style="width:800px; height:400px;">
-  {% include "billboard/grid.html" %}
+<div class="left">
+  {% include "billboard/bb_one_col.html" %}
 </div>
 
 <div class="clearFix"></div>
-
+</div>
 <ul>
   <li>Width: {{WIDTH}}</li>
   <li>Height: {{HEIGHT}}</li>

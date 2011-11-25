@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     (r'^/?$', direct_to_template ,{"template":"coming_soon.html"} ),
     #url(r'^$', 'kegtv.views.home', name='home'),
     (r'^beers/', include('beers.urls')),
-    (r'^billboard/', include('billboard.urls')),
+    (r'^billboards/', include('billboard.urls')),
     
     (r'^ping/', include('pong.urls')),
     (r'^api/', include(v1_api.urls)),

@@ -61,6 +61,8 @@ MenuItemDetailView = Backbone.View.extend({
 	/*
 	 * A view to show a single beers template. Pass in the elements as el
 	 * and the Beer model as model.
+	 * 
+	 * Uses template #menu-item-detail
 	 */
 	initialize: function () {
 		this.el  = "#menu-detail";

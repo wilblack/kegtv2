@@ -65,7 +65,7 @@ def show(request, menu_id):
         menuItems = []
     
     tv = {'menu':menu,
-          'menuItems':json(menuItems),
+          'menuItems':json(menuItems), # These are on the menu
           'ABV_COLOR':ABV_COLOR,
           'TITLE_COLOR':'#8C8572'
           }
@@ -91,8 +91,8 @@ def edit(request, menu_id):
     
     
     tv = {'menu':menu,
-          'menuItems':json(menuItems),
-          'beerItems':json(beerItems),
+          'menuItems':json(menuItems),  # On menu
+          'beerItems':json(beerItems),  # Beer choices 
           'request':request,
           'ABV_COLOR':ABV_COLOR,
           }

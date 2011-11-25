@@ -13,11 +13,7 @@
 -->
 {% include "billboard/billboard_css.html" %}
 
-<script type="text/template" id="menu-item">
-  <div id="<%= cid %>" class="menu-item">
-      <div class='beer-name' ><%= name %></div>
- </div>  
-</script>
+{% include "billboard/menu_item.html" %}
 
 <script type="text/template" id="menu-item-detail">
   <div id="menu-item-detail-header" class="padded" >
@@ -65,7 +61,7 @@ function refresh_display(){
 	window.setTimeout(function(){
 		  menuItemDetailView.next();
 		  refresh_display();
-	  }, 7*1000);
+	  }, 5*1000);
 }
 
 var pos = 100;
@@ -87,20 +83,7 @@ function Scroll(){
 </head>
 <body>
 
-<div id="billboard">
-  <div id="panels">
-    <div id="panel-left" class="left">
-      <ul id="menu-list">
-      </ul>
-    </div>
-    
-    <div id="panel-right" class="left">
-      <div id="menu-detail"></div>  
-    </div>
-    <div class="clearFix"></div>
-  </div>
-  <div id="menu-footer" >{{menu.footer}}</div>
-</div>
+{% include "billboard/bb_one_col.html" %}
 
 </body>  
 </html>
