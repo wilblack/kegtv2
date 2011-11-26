@@ -98,10 +98,10 @@ MenuItemDetailView = Backbone.View.extend({
 		var beer = this.collection.at(this.active);
 		this.show_beer(beer);
 		console.log(beer.cid)
-		$(".menu-item").css("border","").css("background","#FFF6E8");
+		$(".menu-item").css("border","");//.css("background","#FFF6E8");
 		$("#"+beer.cid).css("border","2px solid "+ACCENT_COLOR)
-		               .css("background", "-webkit-linear-gradient(left top, #FFD48E, #FFF6E8, #FFD48E )")
-		               .css("background", "-moz-linear-gradient( top left,#FFD48E,#FFF6E8, #FFD48E)");
+		               //.css("background", "-webkit-linear-gradient(left top, #FFD48E, #FFF6E8, #FFD48E )")
+		               //.css("background", "-moz-linear-gradient( top left,#FFD48E,#FFF6E8, #FFD48E)");
 		this.active++;
 	},
 	show_ad: function(){

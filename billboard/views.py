@@ -31,19 +31,19 @@ def make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS):
     COL_WIDTH = int(floor(WIDTH/NCOLS))
     
     return {'ASPECT_RATIO':ASPECT_RATIO,
-            'WIDTH':WIDTH,
-            'HEIGHT':HEIGHT,
+            'WIDTH':WIDTH,              # used by billboard_css.html
+            'HEIGHT':HEIGHT,            # used by billboard_css.html
             'NROWS':range(NROWS),
             'NCOLS':range(NCOLS),
                   
-            'MENU_TITLE_HEIGHT':6,
-            'MENU_GRID_HEIGHT':86,
-            'MENU_GRID_WIDTH':99.9,
-            'COL_HEIGHT':99,
+            'MENU_TITLE_HEIGHT':"6%",
+            'MENU_GRID_HEIGHT':"86%",
+            'MENU_GRID_WIDTH':"99.9%",
+            'COL_HEIGHT':"99%",
             'COL_WIDTH':32.5,
             'GRID_CELL_HEIGHT':24,
             'GRID_CELL_WIDTH':100,
-            'MENU_FOOTER_HEIGHT':5,
+            'MENU_FOOTER_HEIGHT':"5%",   # used by billboard_css.html
           }
 
 

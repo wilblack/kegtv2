@@ -156,6 +156,6 @@ LOGGING = {
 
 try: 
   from local_settings import *
-except IOError:
+except ImportError:
   pass
 
