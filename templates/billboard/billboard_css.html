@@ -28,8 +28,10 @@ body {background-color: #000000;}
   width:100%;
 }
 #panel-left {
-  width:33%;
+  width:32%;
   height:100%;
+  padding-left:5px;
+  padding-right:5px;
 }
 #panel-right {
   width:66%;
@@ -54,7 +56,11 @@ body {background-color: #000000;}
 
 ul { list-style-type:none; padding:0;}
 
+#panel-left {
+  overflow:hidden;
+}
 .menu-item {
+  height:{{MENU_ITEM_HEIGHT}};
   margin-bottom:3px;
   background:#FFD48E;
   background: -webkit-linear-gradient(top, #FFD48E, #FFF6E8, #E39619 );

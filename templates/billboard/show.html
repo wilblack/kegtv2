@@ -41,9 +41,10 @@
 <script type="text/javascript">
 $(document).ready(function(){
   window.menu_id = {{menu.id}};
+  display_settings = {{display_settings|safe}};
   beerList = new Beers({{menuItems|safe}});
-  beerCollectionView = new BeerCollectionView({collection:beerList, el:'#menu-list'})
-  menuItemDetailView = new MenuItemDetailView({collection:beerList})  
+  beerCollectionView = new BeerCollectionView({collection:beerList, el:'#menu-list'});
+  menuItemDetailView = new MenuItemDetailView({collection:beerList}); 
   
   //window.setTimeout(ping,5*1000);
   refresh_display();

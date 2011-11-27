@@ -11,32 +11,43 @@ from billboard.models import Menu, MenuItem
 from math import floor
 
 #TODO Put these config settings in the backend
+
+display_settings = [{'id':1,
+                     'name':"Wil's House",
+                     'width':785,
+                     'aspect_ratio': 4.0/2.9 },
+                    {'id':2,
+                     'name':"Bier One Original TV",
+                     'width':785,
+                     'aspect_ratio': 16.0/9.0 },
+                    {'id':3,
+                     'name':"Mac Book Pro",
+                     'width':785,
+                     'aspect_ratio':4.0/2.9,},
+                    ]
 ASPECT_RATIO = 4.0/2.9  # My House 
-#ASPECT_RATIO = 4.0/2.25  #For Beir One
+
+#ASPECT_RATIO = 4.0/2.25  # (16:9) For Beir One
 # Luke's TV WIDTH = 785     # Width in pixel of display device.
 WIDTH = 785
-
-NROWS = 4
-NCOLS = 3
-
-ABV_COLOR="red"
-
-def make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS):
+def make_dims(WIDTH=785, ASPECT_RATIO=.75):
+    """
+    Given a width and Aspect ratio (0-1) returns a dictionary of various CSS 
+    values needed. All values are in sting notation so can be %, px, or whatever
+    
+    
+    """
     
     HEIGHT = int(floor(WIDTH/ASPECT_RATIO))
     HEIGHT = HEIGHT
-    
-    ROW_HEIGHT = int(floor(HEIGHT/NROWS))
-    ROW_HEIGHT = ROW_HEIGHT-30
-    COL_WIDTH = int(floor(WIDTH/NCOLS))
+    menu_item_height = int(floor(100.0/8))
     
     return {'ASPECT_RATIO':ASPECT_RATIO,
             'WIDTH':WIDTH,              # used by billboard_css.html
+            
+            
             'HEIGHT':HEIGHT,            # used by billboard_css.html
-            'NROWS':range(NROWS),
-            'NCOLS':range(NCOLS),
-                  
-            'MENU_TITLE_HEIGHT':"6%",
+            'MENU_ITEM_HEIGHT': str(menu_item_height)+"%",
             'MENU_GRID_HEIGHT':"86%",
             'MENU_GRID_WIDTH':"99.9%",
             'COL_HEIGHT':"99%",
@@ -58,6 +69,12 @@ def show(request, menu_id):
     menu = Menu.objects.get(pk=menu_id)
     menuItems = menu.menuitem_set.all()
     
+    if 'ds_id' in request.GET:
+        ds = display_settings[int(request.GET['ds_id'])-1]
+    else:
+        ds = display_settings[2] # Mac Book Pro
+    
+    
     try: 
         menuItems = menu.menuitem_set.all()
         menuItems = [item.json() for item in menuItems]
@@ -66,12 +83,12 @@ def show(request, menu_id):
     
     tv = {'menu':menu,
           'menuItems':json(menuItems), # These are on the menu
-          'ABV_COLOR':ABV_COLOR,
           'TITLE_COLOR':'#8C8572'
           }
     
-    dims = make_dims(WIDTH, ASPECT_RATIO, NROWS, NCOLS)
+    dims = make_dims(ds['width'], ds['aspect_ratio'])
     tv.update(dims)
+    tv.update({'display_settings':json(ds)})
     
     return render_to_response("billboard/show.html", tv, context_instance=RequestContext(request))
     
@@ -79,6 +96,8 @@ def edit(request, menu_id):
     
     # Get menu items for a given menu
     menu = Menu.objects.get(pk=menu_id)
+
+    
     try: 
         menuItems = menu.menuitem_set.all()
         menuItems = [item.json() for item in menuItems]
