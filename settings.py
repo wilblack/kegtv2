@@ -108,7 +108,7 @@ TEMPLATE_DIRS = (
                  os.path.join(ROOT_PATH,"templates") ,
 )
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -129,7 +129,7 @@ INSTALLED_APPS = (
     #'tastypie',
     
     
-)
+]
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -159,3 +159,7 @@ try:
 except ImportError:
   pass
 
+try:
+    INSTALLED_APPS = INSTALLED_APPS + LOCAL_APPS
+except NameError:
+    pass

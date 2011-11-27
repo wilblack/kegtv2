@@ -1,6 +1,10 @@
 {% extends "site_base.html" %}
 
+{% load twitter_tag %}
+
+
 {% block content %}
+{% get_tweets for "barleyboard" as tweets %}
 
 <h3>Menus</h3>
 <ul>
@@ -15,7 +19,19 @@
     <a href="{% url menu_show menu.id %}">Preview</a>
     <a href="{% url menu_edit menu.id %}">Edit</a>
   </li>
+    
   {% endfor %}
 </ul>
 
-{% endblock %}
+<div class="ui-widget">
+  <div class="ui-widget-header">Tweets</div>
+  <div class="ui-widget-content">
+  
+  <ul>
+  {% for tweet in tweets %}
+      <li>{{tweet.created_at}} - {{ tweet.html|safe }}</li>
+  {% endfor %}
+  </ul>
+  {% endblock %}
+  </div>
+</div>
