@@ -2,3 +2,4 @@
 .project
 *.pyc
 local_settings.py
+/static/
