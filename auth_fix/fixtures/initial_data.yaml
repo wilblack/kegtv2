@@ -100,6 +100,15 @@
 - fields: {codename: delete_menuitem, content_type: 13, name: Can delete menu item}
   model: auth.permission
   pk: 39
+- fields: {codename: add_tweet, content_type: 16, name: Can add tweet}
+  model: auth.permission
+  pk: 46
+- fields: {codename: change_tweet, content_type: 16, name: Can change tweet}
+  model: auth.permission
+  pk: 47
+- fields: {codename: delete_tweet, content_type: 16, name: Can delete tweet}
+  model: auth.permission
+  pk: 48
 - fields: {codename: add_contenttype, content_type: 5, name: Can add content type}
   model: auth.permission
   pk: 13
@@ -137,7 +146,7 @@
     is_active: true
     is_staff: true
     is_superuser: true
-    last_login: 2011-11-24 11:51:40.151430
+    last_login: 2011-11-30 14:02:30.474648
     last_name: ''
     password: sha1$52d45$84cef8ce5fea73b1c3936c11841c6b0df45cb655
     user_permissions: []
