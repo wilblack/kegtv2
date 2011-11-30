@@ -24,6 +24,10 @@ display_settings = [{'id':1,
                      'name':"Mac Book Pro",
                      'width':785,
                      'aspect_ratio':4.0/2.9,},
+                    {'id':4,
+                     'name':"LG Monitor",
+                     'width':1425,
+                     'aspect_ratio':4.0/2.47,},
                     ]
 ASPECT_RATIO = 4.0/2.9  # My House 
 
@@ -66,6 +70,11 @@ def index(request):
     return render_to_response("billboard/menu_list.html", tv, context_instance=RequestContext(request))
 
 def show(request, menu_id):
+    """
+      Optional parameters in the query string
+      ds_id
+      
+    """
     menu = Menu.objects.get(pk=menu_id)
     menuItems = menu.menuitem_set.all()
     

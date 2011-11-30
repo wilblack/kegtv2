@@ -32,6 +32,48 @@
 - fields: {about: '', abv: 5.0, beer_type: 8, brewery: 2, name: Black Butte}
   model: beers.beer
   pk: 11
+- fields: {about: '', abv: 9.0, beer_type: 1, brewery: 13, name: Racer X}
+  model: beers.beer
+  pk: 12
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Smoked Turkey}
+  model: beers.beer
+  pk: 13
+- fields: {about: '', abv: null, beer_type: 12, brewery: 15, name: Deviled Eggs}
+  model: beers.beer
+  pk: 14
+- fields: {about: '', abv: null, beer_type: 12, brewery: 17, name: Baked Ham}
+  model: beers.beer
+  pk: 15
+- fields: {about: '', abv: null, beer_type: 12, brewery: 16, name: Sausage Mushroom
+      Stuffing}
+  model: beers.beer
+  pk: 16
+- fields: {about: '', abv: null, beer_type: 12, brewery: 15, name: Stuffed Mushrooms}
+  model: beers.beer
+  pk: 17
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Mashed Potatoes}
+  model: beers.beer
+  pk: 18
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Green Beans}
+  model: beers.beer
+  pk: 19
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Sarah's Famous
+      Rolls}
+  model: beers.beer
+  pk: 20
+- fields: {about: '', abv: null, beer_type: 12, brewery: 16, name: Sweet Potato Casserole}
+  model: beers.beer
+  pk: 21
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Turkey Gravy}
+  model: beers.beer
+  pk: 22
+- fields: {about: '', abv: null, beer_type: 12, brewery: 18, name: Cranberry-Orange
+      Relish}
+  model: beers.beer
+  pk: 23
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Pumpkin Pie}
+  model: beers.beer
+  pk: 24
 - fields: {about: A reddish maltier ale., color1: '#DEAF94', color2: '#8F4B25', color3: '#E38ESF',
     name: Amber Ale}
   model: beers.beertype
@@ -47,6 +89,9 @@
     name: Double IPA}
   model: beers.beertype
   pk: 1
+- fields: {about: '', color1: '#FFFFFF', color2: '#503e2b', color3: '#808094', name: Food}
+  model: beers.beertype
+  pk: 12
 - fields: {about: '', color1: '#FFFFCC', color2: '#333399', color3: '#006666', name: Heffewiezen}
   model: beers.beertype
   pk: 6
@@ -54,7 +99,7 @@
     name: IPA}
   model: beers.beertype
   pk: 2
-- fields: {about: '', color1: '#CC9900', color2: '#333399', color3: '#006666', name: Imperial
+- fields: {about: '', color1: '#483318', color2: '#BDBDB0', color3: '#BDBDB0', name: Imperial
       Stout}
   model: beers.beertype
   pk: 7
@@ -65,7 +110,7 @@
 - fields: {about: '', color1: '#877570', color2: '#120704', color3: '#2B1D19', name: Porter}
   model: beers.beertype
   pk: 8
-- fields: {about: 'A dark, malty beer.', color1: '#333333', color2: '#666633', color3: '#666633',
+- fields: {about: 'A dark, malty beer.', color1: '#543E36', color2: '#BDBDB0', color3: '#BDBDB0',
     name: Stout}
   model: beers.beertype
   pk: 3
@@ -109,3 +154,21 @@
 - fields: {about: '', city: Paso Robles, name: Firestone Walker, state: CA}
   model: beers.brewery
   pk: 12
+- fields: {about: '', city: Healdsburg, name: Bear Republic Brewing Co., state: CA}
+  model: beers.brewery
+  pk: 13
+- fields: {about: '', city: Toledo, name: Olalla Creek Mushroom Company, state: OR}
+  model: beers.brewery
+  pk: 14
+- fields: {about: '', city: Albany, name: Cindy's Home Kitchen, state: OR}
+  model: beers.brewery
+  pk: 15
+- fields: {about: '', city: Crabtree, name: Sarah's  Home Kitchen, state: OR}
+  model: beers.brewery
+  pk: 16
+- fields: {about: '', city: North Albany, name: Scenic Hill Farms, state: OR}
+  model: beers.brewery
+  pk: 17
+- fields: {about: '', city: Roanoke, name: Patti's Home Kitchen, state: VA}
+  model: beers.brewery
+  pk: 18

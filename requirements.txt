@@ -1,4 +1,7 @@
 django==1.3.1
 django-tastypie==0.9.9
-pyyaml
+django-extensions==0.7.1
+pyyaml==3.10
 bpython
+
+django-twitter-tag==0.3.1

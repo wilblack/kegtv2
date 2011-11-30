@@ -1,19 +1,22 @@
 import logging
 import twitter
 import ttp
+import datetime as dt
+
 from json import dumps as json
 
 from django.http import HttpResponse
-
 tweet_parser = ttp.Parser()
 
+from broadcast.models import Tweet
 
 def twitter_get(request, menu_id):
     """
-    And API to return the latest @barleybaord twitter mentions. 
+    And API to return the latest @barleyboard twitter mentions. 
     This is available by going to 
     /broadcast/twitter/get/1/
     
+    Returns a list of tweets as text.
     """
     get = request.GET
         
@@ -31,10 +34,29 @@ def twitter_get(request, menu_id):
 
     # This is to exclude users that you don't want.
     
-    tweets =  ["%s - %s" %(status.GetUser().screen_name, status.text)
-                for status in mentions]
+    #tweets =  ["%s - %s" %(status.GetUser().screen_name, status.text)
+    #            for status in mentions]
+    for status in mentions: 
+        user = status.GetUser().screen_name
+        text = "%s" %(status.text.split(" ", 1)[1])
+        twitter_id = status.id
+        created_at = status.created_at_in_seconds
         
-    
+        entry = {'text':text,
+                 'user':user, 
+                 'created_at':created_at,
+                 'twitter_id':twitter_id,
+                 }
+        tweet, created = Tweet.objects.get_or_create(twitter_id = twitter_id)
+        if created:
+            tweet.user = user
+            tweet.created_at = created_at
+            tweet.text = text
+            tweet.save()
+            
+        tweets.append(entry)
+        tweets.reverse() # This should put the oldest ones first.
+        
     return HttpResponse(json(tweets))
 
 def twitter_authenticate():

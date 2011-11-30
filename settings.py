@@ -124,7 +124,8 @@ INSTALLED_APPS = [
     # Apps
     'beers',
     'billboard',
-    'auth_fix', 
+    'auth_fix',
+    'broadcast',
     
     #'tastypie',
     

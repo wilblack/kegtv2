@@ -1,6 +1,7 @@
 //console.log = function(){return;}
 ACCENT_COLOR = "#075F3B"; 
 
+/******************************* MODELS ****************************************/
 MenuItem = Backbone.Model.extend({ 
   defaults: {},
 });
@@ -9,10 +10,30 @@ BeerItem = Backbone.Model.extend({
   
 });
 
+Tweet = Backbone.Model.extend({
+	  
+});
+
+/******************************** END MODELS **********************************/
+
+
+/******************************* TWEETS ****************************************/
+Tweets = Backbone.Collection.extend({
+  models:Tweet,
+  url:"/broadcast/twitter/get/1/",
+  initialize: function(){
+  },
+  
+});
+
+
 OnMenu = Backbone.Collection.extend({
   models:MenuItem,
   url:"/billboard/menuitem/save/",
+  
+  // Server save of new menu items.
   save_all: function(){
+	  
    this.each(function(menuitem){
       menuitem.save({},{success:function(model, response){
           console.log(response);
@@ -41,7 +62,7 @@ Beers = Backbone.Collection.extend({
 
 BeerView = Backbone.View.extend({
   /* A view for a single beer
-   * 
+   * Where is this used?
    */
   
   className: "beer",
@@ -112,7 +133,7 @@ MenuItemDetailView = Backbone.View.extend({
 
 MenuItemView = Backbone.View.extend({
   /* Pass the model in as model.	
-   * USed to populate the menu choice in edit page.  
+   * Used to populate the menu choice in edit page.  
    */	
   initialize: function(){
     this.render();
@@ -135,7 +156,7 @@ MenuItemView = Backbone.View.extend({
 BeerCollectionView = Backbone.View.extend({
   /* This is a <ul> list of all beers to choose from
    * Pass in a collection (beerList) and a el (#beer-list)
-   * 
+   * Where is this used?
    */
   
   initialize: function(draggable){
@@ -170,6 +191,102 @@ BeerCollectionView = Backbone.View.extend({
     }
   },
       
+});
+
+TwitterFeed = Backbone.View.extend({
+	delta_t: 20*1000,
+	pos:0,
+	initialize: function(){
+		tweets.bind("add", this.show_new, this);
+		this.render();
+		
+	},
+	render: function(){
+		var html='';
+		this.collection.each(function(tweet){
+			html += tweet.get("text") +" | ";
+		});
+		$(this.el).html("");
+		$(this.el).html(html);
+		console.log(html);
+	},
+	
+	update: function(){
+		/* Updates the twitter text by checking the server 
+		 * for more tweets. This runs indefinitaley
+		 */
+		var tweets = this.collection;
+		var twitterFeed = this;
+		window.setTimeout(function(){
+			console.log("Fetch new tweets")
+			var rs = twitterFeed.fetch();
+			twitterFeed.update();
+		}, this.delta_t);
+	},
+	
+	show_new: function(that){
+		 /*
+		  * Function actually show the tweet in the scrolling-feed div.
+		  */
+		 var text = ""+that.get("user")+ ": "+that.get("text");
+		 var html = $("<div>").html(text);
+		 
+		 $(this.el).append(html);
+		 $(this.el).scrollTop($(this.el)[0].scrollHeight);
+		 console.log(html);
+		 
+	 },
+			
+	fetch: function(){
+		/*
+		 * Both loads and updates the tweets. IT is called on page load 
+		 * and periodically to update tweets. 
+		 */
+		var url = tweets.url;
+		$.get(url, function(data){
+			console.log("in ajax callback")
+			if (data.length > 0){
+				
+				data = _.sortBy(data, function(item){
+					return item['twitter_id'];
+				});
+				// If brand new, last_id is set to zero
+				// else its set to the new tweet.
+				var last_id = 0;
+				if (tweets.last()){
+					last_id=tweets.last().get("twitter_id");
+				}
+				
+				
+				// Sort json array by twiiter id so we can get the last one
+				var is_new = _.groupBy(data, function(item){
+					if (item["twitter_id"] > last_id){
+						return "yes";
+					} else {
+						return "no";
+					}
+				});
+				console.log(is_new);
+				_.each(is_new['yes'], function(item){
+					console.log("adding tweet " + item);
+					tweets.add(item);
+				});
+			}
+			
+		}, 'json');
+	},
+	
+	scroll: function(){
+		// This is working properly. If I set overflow:hidden 
+		// It doesn't draw all the text so scrolling does not work. 
+		this.pos -=2;
+		if(this.pos <  -1000){
+			this.pos = 0;
+		}    
+		$(this.el).offset({left:this.pos});
+		window.setTimeout(function(){twitterFeed.scroll();},  30);
+	},
+	
 });
 
 

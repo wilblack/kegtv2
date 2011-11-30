@@ -1,18 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  
-</script> 
 
 <script src="{{ STATIC_URL }}js/jquery-1.6.4.min.js" ></script> 
 <script src="{{ STATIC_URL }}js/underscore-min.js" ></script>  
 <script src="{{ STATIC_URL }}js/backbone.js" ></script> 
 <script src="{{ STATIC_URL }}js/billboard.js" ></script>
-<!--
-<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" />
--->
-{% include "billboard/billboard_css.html" %}
 
+<!-- Include dynamic CSS and template scripts -->
+{% include "billboard/billboard_css.html" %}
 {% include "billboard/menu_item.html" %}
 
 <script type="text/template" id="menu-item-detail">
@@ -38,14 +34,24 @@
  <h3>Visit barleyboard.com for more details</h3>
 </script>
 
+
+
 <script type="text/javascript">
 $(document).ready(function(){
+  
   window.menu_id = {{menu.id}};
   display_settings = {{display_settings|safe}};
+  
   beerList = new Beers({{menuItems|safe}});
   beerCollectionView = new BeerCollectionView({collection:beerList, el:'#menu-list'});
   menuItemDetailView = new MenuItemDetailView({collection:beerList}); 
   
+  
+  tweets = new Tweets();
+  twitterFeed = new TwitterFeed({collection:tweets, el:"#scrolling-feed"})
+  twitterFeed.fetch();
+  twitterFeed.update();
+    
   //window.setTimeout(ping,5*1000);
   refresh_display();
    
@@ -59,24 +65,13 @@ function ping(){
 }
 
 function refresh_display(){
+	/* Updates the actively displayed beer.
+	 *
+	 */
 	window.setTimeout(function(){
 		  menuItemDetailView.next();
 		  refresh_display();
 	  }, 5*1000);
-}
-
-var pos = 100;
-function Scroll(){
-    //get the id of the scrolling text box.
-    obj=$("#menu-footer")[0];
-    //subtract 1 from pos and check pos value using offsetHeight, which retrieves the height of the object relative to the layout.
-    pos -=1;
- 
-    if(pos < 0 - obj.offsetHeight+130) return;
-    //set a new height value using JavaScript style object.
-    obj.style.top=pos;
-    //finally the function calls itself using a timeout..
-    window.setTimeout( "Scroll();" ,  30);
 }
 
 </script>
