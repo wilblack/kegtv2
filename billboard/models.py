@@ -17,7 +17,7 @@ class MenuItem(models.Model):
     beer = models.ForeignKey(Beer)
     menu = models.ForeignKey(Menu, blank=True, null=True)
     position = models.CharField(max_length=45, blank=True,
-        help_text="This is the row column position of the beer in the board grid. It should look somthing like 2-4.")
+        help_text="This is the position of the beer in the board grid. 1 is at the top of the stack.")
     slogan = models.TextField(blank=True,
             help_text="A short phrase that will show up in the billboard.")
     
@@ -36,20 +36,31 @@ class MenuItem(models.Model):
     
     
 class DisplaySettings(models.Model):
-    name = models.CharField(max_length=45)
-    WIDTH = models.IntegerField(default=785, help_text="Width in pixels of the display")
-    NROWS = models.IntegerField(default=4)
-    NCOLS = models.IntegerField(default=3)
-    
-    MENU_TITLE_HEIGHT = models.CharField(max_length=10, default="6%")
-    MENU_GRID_HEIGHT = models.CharField(max_length=10, default="86%")
-    MENU_GRID_WIDTH = models.CharField(max_length=10, default="99.9%")
-    COL_HEIGHT = models.CharField(max_length=10, default="99%")
-    COL_WIDTH = models.CharField(max_length=10, default="32.9%")
-    GRID_CELL_HEIGHT = models.CharField(max_length=10, default="24%")
-    GRID_CELL_WIDTH = models.CharField(max_length=10, default="100%")
-    MENU_FOOTER_HEIGHT = models.CharField(max_length=10, default="5%")
+    nickname = models.CharField(max_length=45, 
+                                help_text="This is a descriptive name that you can remember.")
+    name = models.CharField(max_length=45, 
+                            help_text="This is the technical name")
+    width = models.IntegerField(default=785, 
+                                help_text="Width in pixels of the display")
+    aspect_ratio = models.FloatField(default=1.333, 
+                                     help_text="The ascpect ratio in decimal form. For instance 4:3 would be 1.333") 
     
     def __unicode__(self):
-        return self.name
+        return "%s - (%s)" %(self.nickname, self.name)
+    
+    @property
+    def json(self):
+        return {'nickname':self.nickname,
+                'name':self.name,
+                'width':self.width,
+                'aspect_ratio':self.aspect_ratio,
+                }
+        
+class Ad(models.Model):
+    name = models.CharField(max_length=45)
+    template = models.CharField(max_length=45, blank=True)
+    menu = models.ForeignKey(Menu)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    
     

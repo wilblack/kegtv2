@@ -14,26 +14,33 @@
 <script type="text/template" id="menu-item-detail">
   <div id="menu-item-detail-header" class="padded" >
       <div class='beer-name' ><%= name %></div>
-	  <span class='beer-type'><%= beer_type %></span>
-      <span class="beer-abv right" ><%= abv %></span>
+	  
   </div>  
   <div class="clearFix"></div>
+  
   <div id="menu-item-detail-content" class="padded">
+  <div>
+      <span class='beer-type' style="background:<%= color1 %>;">
+         <%= beer_type %>
+      </span>
+  <div>
   <div>
     <span class='brewery-name' ><%= brewery %></span>
   </div>  
   <div class='brewery-location'><%= brewery_city %>, <%= brewery_state %> </div>
   
   <div class='beer-stats'>
-     <ul>
-       <li>ABV: <%= abv %></li>
-       <li>IBU: 46
+     
+	<ul>
+       <li><%= abv %></li>
+       <li><%= ibu %></li>
+       <!--
        <li>
         <img src="{{STATIC_URL}}images/icons/gold_medal.png"></img>
         <img src="{{STATIC_URL}}images/icons/silver_medal.png"></img>
         <img src="{{STATIC_URL}}images/icons/bronze_medal.png"></img>
-      </li>
-       <li>
+       </li>
+       -->
 	 </ul>
   </div>
    
@@ -46,7 +53,7 @@
  </div>
 <div class="clearFix"></div>
   <div id="ad-content" class="padded">
-	<img height="250" width="250" src="{{STATIC_URL}}images/dev_bb_qrcode.png"></img>
+	<img height="150" width="150" src="{{STATIC_URL}}images/dev_bb_qrcode.png"></img>
 </div>
 
 </script>
@@ -62,13 +69,11 @@ $(document).ready(function(){
   beerList = new Beers({{menuItems|safe}});
   beerCollectionView = new BeerCollectionView({collection:beerList, el:'#menu-list'});
   menuItemDetailView = new MenuItemDetailView({collection:beerList}); 
-  
-  
+    
   tweets = new Tweets();
   twitterFeed = new TwitterFeed({collection:tweets, el:"#scrolling-feed"})
   twitterFeed.fetch();
-  
-  
+    
   twitterFeed.update();  
   //window.setTimeout(ping,5*1000);
   refresh_display();

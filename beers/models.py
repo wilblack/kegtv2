@@ -7,6 +7,7 @@ class Beer(models.Model):
     brewery = models.ForeignKey('Brewery')
     beer_type = models.ForeignKey('BeerType')
     abv = models.FloatField(blank=True, null=True)
+    ibu = models.FloatField(blank=True, null=True)
     about = models.TextField(blank=True)
     
     def __unicode__(self):
@@ -21,6 +22,7 @@ class Beer(models.Model):
                 'brewery_state':self.brewery.state,
                 'beer_type':self.beer_type.name,
                 'abv':self.abv,
+                'ibu':self.ibu,
                 'color1':self.beer_type.color1,
                 'color2':self.beer_type.color2,
                 'color3':self.beer_type.color3,

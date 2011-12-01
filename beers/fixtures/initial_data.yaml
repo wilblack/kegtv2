@@ -1,77 +1,93 @@
-- fields: {about: Big Double IPA, abv: null, beer_type: 1, brewery: 1, name: Tricerahops}
+- fields: {about: Big Double IPA, abv: 8.9000000000000004, beer_type: 1, brewery: 1,
+    ibu: 102.0, name: Tricerahops}
   model: beers.beer
   pk: 1
-- fields: {about: '', abv: null, beer_type: 3, brewery: 2, name: Obsidian Stout}
+- fields: {about: '', abv: null, beer_type: 3, brewery: 2, ibu: null, name: Obsidian
+      Stout}
   model: beers.beer
   pk: 2
-- fields: {about: '', abv: null, beer_type: 2, brewery: 6, name: Alpha IPA}
+- fields: {about: '', abv: 6.5, beer_type: 2, brewery: 6, ibu: 78.0, name: Alpha IPA}
   model: beers.beer
   pk: 3
-- fields: {about: '', abv: null, beer_type: 5, brewery: 3, name: SantiAmber}
+- fields: {about: '', abv: null, beer_type: 5, brewery: 3, ibu: null, name: SantiAmber}
   model: beers.beer
   pk: 4
-- fields: {about: '', abv: null, beer_type: 4, brewery: 2, name: Mirror Pond}
+- fields: {about: '', abv: null, beer_type: 4, brewery: 2, ibu: null, name: Mirror
+      Pond}
   model: beers.beer
   pk: 5
-- fields: {about: '', abv: null, beer_type: 1, brewery: 8, name: Hopstoopid}
+- fields: {about: '', abv: 7.9000000000000004, beer_type: 1, brewery: 8, ibu: 95.0,
+    name: Hopstoopid}
   model: beers.beer
   pk: 6
-- fields: {about: '', abv: null, beer_type: 6, brewery: 9, name: Blue Moon}
+- fields: {about: '', abv: null, beer_type: 6, brewery: 9, ibu: null, name: Blue Moon}
   model: beers.beer
   pk: 7
 - fields: {about: 'A hoppy, floral, and exceptionally balanced northwest IPA.', abv: 6.7000000000000002,
-    beer_type: 2, brewery: 1, name: Total Domination}
+    beer_type: 2, brewery: 1, ibu: 78.0, name: Total Domination}
   model: beers.beer
   pk: 8
-- fields: {about: '', abv: null, beer_type: 5, brewery: 11, name: Pumpkin Ale}
+- fields: {about: '', abv: 7.5999999999999996, beer_type: 5, brewery: 11, ibu: 67.0,
+    name: Pumpkin Ale}
   model: beers.beer
   pk: 9
-- fields: {about: '', abv: 11.0, beer_type: 7, brewery: 12, name: Black Xantus}
+- fields: {about: '', abv: 11.0, beer_type: 7, brewery: 12, ibu: 55.0, name: Black
+      Xantus}
   model: beers.beer
   pk: 10
-- fields: {about: '', abv: 5.0, beer_type: 8, brewery: 2, name: Black Butte}
+- fields: {about: '', abv: 5.0, beer_type: 8, brewery: 2, ibu: 45.0, name: Black Butte}
   model: beers.beer
   pk: 11
-- fields: {about: '', abv: 9.0, beer_type: 1, brewery: 13, name: Racer X}
+- fields: {about: '', abv: 9.0, beer_type: 1, brewery: 13, ibu: 97.0, name: Racer
+      X}
   model: beers.beer
   pk: 12
-- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Smoked Turkey}
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, ibu: null, name: Smoked
+      Turkey}
   model: beers.beer
   pk: 13
-- fields: {about: '', abv: null, beer_type: 12, brewery: 15, name: Deviled Eggs}
+- fields: {about: '', abv: null, beer_type: 12, brewery: 15, ibu: null, name: Deviled
+      Eggs}
   model: beers.beer
   pk: 14
-- fields: {about: '', abv: null, beer_type: 12, brewery: 17, name: Baked Ham}
+- fields: {about: '', abv: null, beer_type: 12, brewery: 17, ibu: null, name: Baked
+      Ham}
   model: beers.beer
   pk: 15
-- fields: {about: '', abv: null, beer_type: 12, brewery: 16, name: Sausage Mushroom
-      Stuffing}
+- fields: {about: '', abv: null, beer_type: 12, brewery: 16, ibu: null, name: Sausage
+      Mushroom Stuffing}
   model: beers.beer
   pk: 16
-- fields: {about: '', abv: null, beer_type: 12, brewery: 15, name: Stuffed Mushrooms}
+- fields: {about: '', abv: null, beer_type: 12, brewery: 15, ibu: null, name: Stuffed
+      Mushrooms}
   model: beers.beer
   pk: 17
-- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Mashed Potatoes}
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, ibu: null, name: Mashed
+      Potatoes}
   model: beers.beer
   pk: 18
-- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Green Beans}
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, ibu: null, name: Green
+      Beans}
   model: beers.beer
   pk: 19
-- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Sarah's Famous
-      Rolls}
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, ibu: null, name: Sarah's
+      Famous Rolls}
   model: beers.beer
   pk: 20
-- fields: {about: '', abv: null, beer_type: 12, brewery: 16, name: Sweet Potato Casserole}
+- fields: {about: '', abv: null, beer_type: 12, brewery: 16, ibu: null, name: Sweet
+      Potato Casserole}
   model: beers.beer
   pk: 21
-- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Turkey Gravy}
+- fields: {about: '', abv: null, beer_type: 12, brewery: 14, ibu: null, name: Turkey
+      Gravy}
   model: beers.beer
   pk: 22
-- fields: {about: '', abv: null, beer_type: 12, brewery: 18, name: Cranberry-Orange
+- fields: {about: '', abv: null, beer_type: 12, brewery: 18, ibu: null, name: Cranberry-Orange
       Relish}
   model: beers.beer
   pk: 23
-- fields: {about: '', abv: null, beer_type: 12, brewery: 14, name: Pumpkin Pie}
+- fields: {about: '', abv: 7.5, beer_type: 12, brewery: 14, ibu: 50.0, name: Pumpkin
+      Pie}
   model: beers.beer
   pk: 24
 - fields: {about: A reddish maltier ale., color1: '#DEAF94', color2: '#8F4B25', color3: '#E38ESF',

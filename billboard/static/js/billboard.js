@@ -97,10 +97,11 @@ MenuItemDetailView = Backbone.View.extend({
 		this.next();
 	  },
 	render: function(){
-		// create the variables to pass to menu-item template
+		/*
+		 * USed to show an individual menu items detailed info
+		 */
 	    var variables = make_beer_variables(this.model);
-	    
-	    // Make attach some stuff to a template
+	    	    
 	    var template = _.template( $("#menu-item-detail").html(), variables);
 	    $(this.el).empty()
 	    $(this.el).html(template);
@@ -119,11 +120,13 @@ MenuItemDetailView = Backbone.View.extend({
 			$(".menu-item").removeClass("menu-item-active");
 			this.show_ad();
 			this.active = 0;
+			$(beerCollectionView.el).css("top","0px");
 		} else {
 		
 		  var beer = this.collection.at(this.active);
 		  this.show_beer(beer);
 		  console.log("Active beer cid: "+beer.cid);
+		  beerCollectionView.next();
 		  $(".menu-item").removeClass("menu-item-active");
 		  $("#"+beer.cid).addClass("menu-item-active");
 		  this.active++;
@@ -160,7 +163,9 @@ MenuItemView = Backbone.View.extend({
 BeerCollectionView = Backbone.View.extend({
   /* This is a <ul> list of all beers to choose from
    * Pass in a collection (beerList) and a el (#beer-list)
-   * Where is this used?
+   * 
+   * This is used in show.html to show the list of beers
+   * on the brewpub's menu.
    */
   
   initialize: function(draggable){
@@ -194,7 +199,10 @@ BeerCollectionView = Backbone.View.extend({
                              });
     }
   },
-      
+   next: function(){
+	   $(this.el).animate({"top":"-=53px"}, 1*1000);  
+   },
+  
 });
 
 TwitterFeed = Backbone.View.extend({
@@ -301,8 +309,11 @@ function make_beer_variables(model){
    * to render a beer menu-item. Used by MenuItemView and BeerView.
    */
   var abv_text = "";
-  if (model.get("abv")) abv_text = model.get("abv")+"%"; 
+  if (model.get("abv")) abv_text = "ABV: "+model.get("abv")+"%"; 
   
+  var ibu_text = "";
+  if (model.get("ibu")) ibu_text = "IBU: "+model.get("ibu");
+    
   variables = {'cid':model.cid,
                'color1':model.get("color1"),
                'color2':model.get("color2"),
@@ -310,6 +321,7 @@ function make_beer_variables(model){
                'name':model.get("name"),
                'beer_type':model.get("beer_type"),
                'abv':abv_text,
+               'ibu':ibu_text,
                'brewery':model.get("brewery"),
                'brewery_city':model.get("brewery_city"),
                'brewery_state':model.get("brewery_state"),

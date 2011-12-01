@@ -6,7 +6,7 @@ from json import dumps as json
 from json import loads
 
 from beers.models import Beer
-from billboard.models import Menu, MenuItem
+from billboard.models import Menu, MenuItem, DisplaySettings
 
 from math import floor
 
@@ -79,10 +79,9 @@ def show(request, menu_id):
     menuItems = menu.menuitem_set.all()
     
     if 'ds_id' in request.GET:
-        ds = display_settings[int(request.GET['ds_id'])-1]
+        ds = DisplaySettings.objects.get(pk = request.GET['ds_id'])
     else:
-        ds = display_settings[2] # Mac Book Pro
-    
+        ds = menu.display_settings
     
     try: 
         menuItems = menu.menuitem_set.all()
@@ -92,7 +91,9 @@ def show(request, menu_id):
     
     THEME = {'TITLE_COLOR':'#8C8572',
              'ACCENT_BORDER_COLOR':'#E0491B',
-             'BEER_TYPE_COLOR':'none',
+             'ACCENT_COLOR_LIGHT':"#F08752",
+             'ACCENT_COLOR_MED':"#E05D18",
+             'ACCENT_COLOR_DARK':"#923709",
              }
     
     tv = {'menu':menu,
@@ -100,9 +101,9 @@ def show(request, menu_id):
           }
     
     tv.update(THEME)
-    dims = make_dims(ds['width'], ds['aspect_ratio'])
+    dims = make_dims(ds.width, ds.aspect_ratio)
     tv.update(dims)
-    tv.update({'display_settings':json(ds)})
+    tv.update({'display_settings':json(ds.json)})
     
     return render_to_response("billboard/show.html", tv, context_instance=RequestContext(request))
     

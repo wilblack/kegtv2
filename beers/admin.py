@@ -2,7 +2,7 @@ from django.contrib import admin
 from beers.models import Beer, Brewery, BeerType
 
 class BeerAdmin(admin.ModelAdmin):
-    list_display = ['name', 'brewery', 'beer_type']
+    list_display = ['name', 'brewery', 'beer_type', 'abv', 'ibu']
 
 class BeerTypeAdmin(admin.ModelAdmin):
     list_display = ['name', 'about', 'color1', 'color2', 'color3']

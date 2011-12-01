@@ -71,8 +71,14 @@
 - fields: {beer: 23, menu: 2, name: fghf, position: '', slogan: ''}
   model: billboard.menuitem
   pk: 49
-- fields: {COL_HEIGHT: 99%, COL_WIDTH: 32.9%, GRID_CELL_HEIGHT: 24%, GRID_CELL_WIDTH: 100%,
-    MENU_FOOTER_HEIGHT: 5%, MENU_GRID_HEIGHT: 86%, MENU_GRID_WIDTH: 99.9%, MENU_TITLE_HEIGHT: 6%,
-    NCOLS: 3, NROWS: 4, WIDTH: 785, name: Default}
+- fields: {aspect_ratio: 1.3799999999999999, name: 'Samsung ~ 4:3 ', nickname: Wil's
+      House T.V., width: 785}
   model: billboard.displaysettings
   pk: 1
+- fields: {aspect_ratio: 1.7777777699999999, name: HD 720, nickname: Bier One TV,
+    width: 785}
+  model: billboard.displaysettings
+  pk: 2
+- fields: {aspect_ratio: 1.619, name: LG Monitior, nickname: Wil's Monitor, width: 1425}
+  model: billboard.displaysettings
+  pk: 3
