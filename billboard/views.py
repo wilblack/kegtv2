@@ -90,11 +90,16 @@ def show(request, menu_id):
     except AttributeError:
         menuItems = []
     
+    THEME = {'TITLE_COLOR':'#8C8572',
+             'ACCENT_BORDER_COLOR':'#E0491B',
+             'BEER_TYPE_COLOR':'none',
+             }
+    
     tv = {'menu':menu,
-          'menuItems':json(menuItems), # These are on the menu
-          'TITLE_COLOR':'#8C8572'
+          'menuItems':json(menuItems), # These are on the menu         
           }
     
+    tv.update(THEME)
     dims = make_dims(ds['width'], ds['aspect_ratio'])
     tv.update(dims)
     tv.update({'display_settings':json(ds)})

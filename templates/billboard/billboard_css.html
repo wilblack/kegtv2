@@ -3,6 +3,7 @@ body {background-color: #000000;}
 .left {float:left;}
 .right {float:right}
 .padded {padding: 5px;}
+.clearFix {clear:both;}
 
 .beer-name {
   /* color:black !important; */
@@ -11,13 +12,24 @@ body {background-color: #000000;}
   font-family: Arial, Helvetica, sans-serif;
   text-align:center;
 }	
-	
-.brewery-name, .abv { 
+
+.beer-type, .beer-abv {
+  background:{{BEER_TYPE_COLOR}};
   font-size:1.0em;
+  font-family:Tahoma, Arial, Helvetica, sans-serif;
+}
+
+.brewery-name { 
+  font-size:1.2em;
   font-family: Arial, Helvetica, sans-serif;
   padding:0px 3px 0px 3px;
 }
 
+.brewery-location {
+  font-size:1.0em;
+  font-family: Arial, Helvetica, sans-serif;
+  padding:0px 3px 0px 3px;
+}
 #billboard {
   width:{{WIDTH}}px;
   height:{{HEIGHT}}px;
@@ -32,36 +44,78 @@ body {background-color: #000000;}
   height:100%;
   padding-left:5px;
   padding-right:5px;
+  overflow:hidden;
 }
+
 #panel-right {
-  width:66%;
+  width:66.8%;
   height:100%;
   /* border:2px solid #075F3B; */
 }
 #menu-detail {
+  position:relative;
+  float:right;
   height:70%;
-  width:75%;
-  background:#FFF6E8;
+  width:85%;
+  
   margin:auto;
   margin-top:2%;
   margin-bottom:2%;
+  margin-right:0px;
+  border-right:0px;
 }
 
 #menu-item-detail-header {
-  border:2px solid #075F3B;
+  width:100%;
+  border:7px solid {{ACCENT_BORDER_COLOR}};
+  border-right:0px;
+  border-style:ridge;
   font-size:1.8em;
-  
+  float:right;
+  margin-right:0px;
+  padding-left:25px;
   background:#FFD48E;
   background: -webkit-linear-gradient(left top, #FFD48E, #FFF6E8, #FFD48E );
   background: -moz-linear-gradient( top left,#FFD48E,#FFF6E8, #FFD48E);
+  border-top-left-radius: 50px 50px;
+  border-bottom-left-radius: 50px 50px;
 }
+
+#menu-item-detail-content {
+	width:75%;
+	margin:auto;
+	height:50%;
+	background:#FFF6E8;
+	border:7px solid {{ACCENT_BORDER_COLOR}};
+	border-top:0px;
+	border-style:ridge;
+	border-bottom-right-radius: 25px 25px;
+    border-bottom-left-radius: 25px 25px;
+}
+#ad-content {
+    width:85%;
+    text-align:center;
+	height:71%;
+	background:#FFF6E8;
+	border:7px solid {{ACCENT_BORDER_COLOR}};
+	border-top:0px;
+	border-style:ridge;
+	border-bottom-right-radius: 25px 25px;
+    border-bottom-left-radius: 25px 25px;
+}
+
+
 #scrolling-feed-widget {
   background:#FFD48E;
   height:21%;
   width:95%;
   margin:auto;
   font-family:Arial, Helvetica, sans-serif;
- 
+}
+.scrolling-feed-header {
+  background:#9AE4E8;
+  height:30%;
+  border-bottom:1px solid #0084B4;
 }
 
 #scrolling-feed {
@@ -70,13 +124,12 @@ body {background-color: #000000;}
    overflow:hidden;
    height:80%;
 }
-
+.twitter-name {
+	margin:14px 0px 0px 5px;
+}
 
 ul { list-style-type:none; padding:0;}
 
-#panel-left {
-  overflow:hidden;
-}
 .menu-item {
   height:{{MENU_ITEM_HEIGHT}};
   margin-bottom:3px;
@@ -86,7 +139,10 @@ ul { list-style-type:none; padding:0;}
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
  }
-
+.menu-item-active {
+  border:7px solid {{ACCENT_BORDER_COLOR}};
+  border-style:ridge;
+}
 .grid-cell.first {
   /* border-top:3px solid #606B8C; */
   border-top:3px solid {{TITLE_COLOR}};

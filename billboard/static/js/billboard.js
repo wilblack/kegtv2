@@ -26,8 +26,12 @@ Tweets = Backbone.Collection.extend({
   
 });
 
-
 OnMenu = Backbone.Collection.extend({
+  /*
+   * Models that are actually on the menu as oppsed to being able to
+   * be on the menu. 
+   */
+	
   models:MenuItem,
   url:"/billboard/menuitem/save/",
   
@@ -111,19 +115,18 @@ MenuItemDetailView = Backbone.View.extend({
 	},
 	next: function(that){
 		if (this.active == this.collection.length){
-			$(".menu-item").css("border","");
+			//$(".menu-item").css("border","");
+			$(".menu-item").removeClass("menu-item-active");
 			this.show_ad();
 			this.active = 0;
 		} else {
 		
-		var beer = this.collection.at(this.active);
-		this.show_beer(beer);
-		console.log(beer.cid)
-		$(".menu-item").css("border","");//.css("background","#FFF6E8");
-		$("#"+beer.cid).css("border","7px solid "+ACCENT_COLOR)
-		               //.css("background", "-webkit-linear-gradient(left top, #FFD48E, #FFF6E8, #FFD48E )")
-		               //.css("background", "-moz-linear-gradient( top left,#FFD48E,#FFF6E8, #FFD48E)");
-		this.active++;
+		  var beer = this.collection.at(this.active);
+		  this.show_beer(beer);
+		  console.log("Active beer cid: "+beer.cid);
+		  $(".menu-item").removeClass("menu-item-active");
+		  $("#"+beer.cid).addClass("menu-item-active");
+		  this.active++;
 		}
 	},
 	show_ad: function(){
@@ -298,7 +301,7 @@ function make_beer_variables(model){
    * to render a beer menu-item. Used by MenuItemView and BeerView.
    */
   var abv_text = "";
-  if (model.get("abv")) abv_text = "abv: "+model.get("abv")+" %"; 
+  if (model.get("abv")) abv_text = model.get("abv")+"%"; 
   
   variables = {'cid':model.cid,
                'color1':model.get("color1"),

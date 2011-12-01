@@ -17,21 +17,38 @@
 	  <span class='beer-type'><%= beer_type %></span>
       <span class="beer-abv right" ><%= abv %></span>
   </div>  
-
+  <div class="clearFix"></div>
   <div id="menu-item-detail-content" class="padded">
   <div>
-    Brewed by <span class='brewery-name' ><%= brewery %></span>
+    <span class='brewery-name' ><%= brewery %></span>
   </div>  
-  <div class='brewery-name'><%= brewery_city %>, <%= brewery_state %> </div>
+  <div class='brewery-location'><%= brewery_city %>, <%= brewery_state %> </div>
   
+  <div class='beer-stats'>
+     <ul>
+       <li>ABV: <%= abv %></li>
+       <li>IBU: 46
+       <li>
+        <img src="{{STATIC_URL}}images/icons/gold_medal.png"></img>
+        <img src="{{STATIC_URL}}images/icons/silver_medal.png"></img>
+        <img src="{{STATIC_URL}}images/icons/bronze_medal.png"></img>
+      </li>
+       <li>
+	 </ul>
+  </div>
+   
   </div>
 </script>
 
 <script type="text/template" id="ad-template">
   <div id="menu-item-detail-header" class="padded" >
-      <div class="beer-name">Your Ad Here</div>
+      <div class="beer-name">Barleyboard.com</div>
  </div>
- <h3>Visit barleyboard.com for more details</h3>
+<div class="clearFix"></div>
+  <div id="ad-content" class="padded">
+	<img height="250" width="250" src="{{STATIC_URL}}images/dev_bb_qrcode.png"></img>
+</div>
+
 </script>
 
 
@@ -50,8 +67,9 @@ $(document).ready(function(){
   tweets = new Tweets();
   twitterFeed = new TwitterFeed({collection:tweets, el:"#scrolling-feed"})
   twitterFeed.fetch();
-  twitterFeed.update();
-    
+  
+  
+  twitterFeed.update();  
   //window.setTimeout(ping,5*1000);
   refresh_display();
    
