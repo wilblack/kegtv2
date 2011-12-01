@@ -1,5 +1,5 @@
-- fields: {display_settings: 1, entered: !!timestamp '2011-11-19 00:43:43.499514',
-    footer: Drink a lot of beer!!!, modified: !!timestamp '2011-11-19 00:43:43.499545',
+- fields: {display_settings: 2, entered: !!timestamp '2011-11-19 00:43:43.499514',
+    footer: Drink a lot of beer!!!, modified: !!timestamp '2011-12-01 11:34:52.146159',
     title: Welcome to Bier One}
   model: billboard.menu
   pk: 1
