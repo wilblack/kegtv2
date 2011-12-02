@@ -90,47 +90,47 @@
       Pie}
   model: beers.beer
   pk: 24
-- fields: {about: A reddish maltier ale., color1: '#DEAF94', color2: '#8F4B25', color3: '#E38ESF',
+- fields: {about: A reddish maltier ale., color1: '#BC6733', color2: '#000000', color3: '#E38ESF',
     name: Amber Ale}
   model: beers.beertype
   pk: 5
-- fields: {about: '', color1: '#FFFFFF', color2: '#503e2b', color3: '#808094', name: Bitter}
+- fields: {about: '', color1: '#BF813A', color2: '#000000', color3: '#808094', name: Bitter}
   model: beers.beertype
   pk: 11
-- fields: {about: '', color1: '#FFFFFF', color2: '#503e2b', color3: '#808094', name: Brown
+- fields: {about: '', color1: '#BF813A', color2: '#000000', color3: '#808094', name: Brown
       Ale}
   model: beers.beertype
   pk: 10
-- fields: {about: Douple IPA Text, color1: '#739E72', color2: '#324531', color3: '#2F6E2D',
+- fields: {about: Douple IPA Text, color1: '#BC6733', color2: '#000000', color3: '#2F6E2D',
     name: Double IPA}
   model: beers.beertype
   pk: 1
-- fields: {about: '', color1: '#FFFFFF', color2: '#503e2b', color3: '#808094', name: Food}
+- fields: {about: '', color1: '#F6F513', color2: '#000000', color3: '#808094', name: Food}
   model: beers.beertype
   pk: 12
-- fields: {about: '', color1: '#FFFFCC', color2: '#333399', color3: '#006666', name: Heffewiezen}
+- fields: {about: '', color1: '#BF923B', color2: '#000000', color3: '#006666', name: Heffewiezen}
   model: beers.beertype
   pk: 6
-- fields: {about: A hoppy beer., color1: '#7EA37E', color2: '#094C09', color3: '#1A531A',
+- fields: {about: A hoppy beer., color1: '#BC6733', color2: '#000000', color3: '#1A531A',
     name: IPA}
   model: beers.beertype
   pk: 2
-- fields: {about: '', color1: '#483318', color2: '#BDBDB0', color3: '#BDBDB0', name: Imperial
+- fields: {about: '', color1: '#080707', color2: '#FFF6E8', color3: '#BDBDB0', name: Imperial
       Stout}
   model: beers.beertype
   pk: 7
-- fields: {about: A lighter ale., color1: '#ADAA78', color2: '#575203', color3: '#8A853B',
+- fields: {about: A lighter ale., color1: '#ECE61A', color2: '#000000', color3: '#8A853B',
     name: Pale Ale}
   model: beers.beertype
   pk: 4
-- fields: {about: '', color1: '#877570', color2: '#120704', color3: '#2B1D19', name: Porter}
+- fields: {about: '', color1: '#0F0B0A', color2: '#FFF6E8', color3: '#2B1D19', name: Porter}
   model: beers.beertype
   pk: 8
-- fields: {about: 'A dark, malty beer.', color1: '#543E36', color2: '#BDBDB0', color3: '#BDBDB0',
+- fields: {about: 'A dark, malty beer.', color1: '#080707', color2: '#FFF6E8', color3: '#BDBDB0',
     name: Stout}
   model: beers.beertype
   pk: 3
-- fields: {about: '', color1: '#FFFFFF', color2: '#503e2b', color3: '#808094', name: Wheat
+- fields: {about: '', color1: '#BF923B', color2: '#000000', color3: '#808094', name: Wheat
       Beer}
   model: beers.beertype
   pk: 9
