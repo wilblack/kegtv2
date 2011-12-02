@@ -54,7 +54,7 @@ body {background-color: #000000;}
 
 #menu-list {
   position:absolute;
-  width:95%;
+  /*width:95%;*/
 }
 #panel-right {
   width:66.8%;
@@ -153,11 +153,16 @@ ul { list-style-type:none; padding:0;}
   background:-moz-linear-gradient( top,#FFD48E,#FFF6E8, #E39619);
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+  border-left:7px solid black;
+  border-right:7px solid black;
  }
 .menu-item-active {
-  border:7px solid {{ACCENT_BORDER_COLOR}};
-  border-style:ridge;
-  border-radius:0px;
+  border-left: 0px;
+  border:7px solid {{ACCENT_BORDER_COLOR}} !important;
+  border-style:ridge !important;
+  border-radius:0px !important;
+  
+  
 }
 
 #menu-footer {

@@ -1,6 +1,6 @@
 //console.log = function(){return;}
 ACCENT_COLOR = "white"; 
-
+MAX_ITEMS = 8;
 /******************************* MODELS ****************************************/
 MenuItem = Backbone.Model.extend({ 
   defaults: {},
@@ -28,8 +28,9 @@ Tweets = Backbone.Collection.extend({
 
 OnMenu = Backbone.Collection.extend({
   /*
-   * Models that are actually on the menu as oppsed to being able to
+   * Models that are actually on the menu as opposed to being able to
    * be on the menu. 
+   * This is used in edit only.
    */
 	
   models:MenuItem,
@@ -117,18 +118,17 @@ MenuItemDetailView = Backbone.View.extend({
 	next: function(that){
 		if (this.active == this.collection.length){
 			//$(".menu-item").css("border","");
-			$(".menu-item").removeClass("menu-item-active");
+			//$(".menu-item").removeClass("menu-item-active");
 			this.show_ad();
 			this.active = 0;
-			$(beerCollectionView.el).css("top","0px");
+			beerCollectionView.center_at(0);
 		} else {
 		
 		  var beer = this.collection.at(this.active);
 		  this.show_beer(beer);
 		  console.log("Active beer cid: "+beer.cid);
-		  beerCollectionView.next();
-		  $(".menu-item").removeClass("menu-item-active");
-		  $("#"+beer.cid).addClass("menu-item-active");
+		  beerCollectionView.next(this.active);
+		  
 		  this.active++;
 		}
 	},
@@ -172,13 +172,20 @@ BeerCollectionView = Backbone.View.extend({
     var that = this; // so we can use that in underscore mapping function
     this._beerViews = [];
     if(!draggable) this.draggable=false;
-        
-    this.collection.each(function(beer){
-      that._beerViews.push(new BeerView({
-        model:beer,
-        tagName:'li', // this is was it will be appended as
-      }));
-    });
+      
+    // Loop through each beer in the collection
+    // And create a BeerView <li> for it.
+    
+    // Make the list 3 times to account for scrolling
+    for (var i=0;i<=2;i++){
+	    this.collection.each(function(beer){
+	      that._beerViews.push(new BeerView({
+	        model:beer,
+	        tagName:'li', // this is was it will be appended as
+	      }));
+	    });
+    }   
+    
     this.render();
   },
   
@@ -199,10 +206,35 @@ BeerCollectionView = Backbone.View.extend({
                              });
     }
   },
-   next: function(){
-	   $(this.el).animate({"top":"-=53px"}, 1*1000);  
-   },
+  next: function(active_index){
+	   //var offset = $("#menu-list").find("li").outerHeight();
+	   //offset=offset+6;
+	   //
+	   this.center_at(active_index);	   
+  },
   
+  center_at: function(index){
+	/*
+	 * centers the scrolling menu at the given index.
+	 * This means that the menu item with the given index
+	 * will be centered on the screen.
+	 * 
+	 */  
+	 obj = this;
+	 index=index; // 
+	 var offset = $("#menu-list").find("li").outerHeight();
+	 
+	 offset = ( - obj.collection.length - index + 3) *(offset+3);	
+	 console.log("offset: "+offset)
+	 $(".menu-item").removeClass("menu-item-active");
+	 
+	 $(this.el).animate({"top":offset+"px"}, 1*1000, function(){
+		 $(obj.el).find("li").eq(index+obj.collection.length)
+					.find(".menu-item")
+					.addClass("menu-item-active");
+	 });
+  },
+   
 });
 
 TwitterFeed = Backbone.View.extend({

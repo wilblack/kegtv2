@@ -44,14 +44,15 @@ def make_dims(WIDTH=785, ASPECT_RATIO=.75):
     
     HEIGHT = int(floor(WIDTH/ASPECT_RATIO))
     HEIGHT = HEIGHT
-    menu_item_height = int(floor(100.0/8))
+    menu_item_height = int(floor(100.0/8))*.01*HEIGHT
+    
     
     return {'ASPECT_RATIO':ASPECT_RATIO,
             'WIDTH':WIDTH,              # used by billboard_css.html
             
             
             'HEIGHT':HEIGHT,            # used by billboard_css.html
-            'MENU_ITEM_HEIGHT': str(menu_item_height)+"%",
+            'MENU_ITEM_HEIGHT': str(menu_item_height)+"px",
             'MENU_GRID_HEIGHT':"86%",
             'MENU_GRID_WIDTH':"99.9%",
             'COL_HEIGHT':"99%",

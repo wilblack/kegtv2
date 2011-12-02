@@ -20,9 +20,10 @@
   
   <div id="menu-item-detail-content" class="padded">
   <div>
-      <span class='beer-type' style="background:<%= color1 %>;">
+      <span class='beer-type' style="background:<%= color1 %>; color:<%= color2 %>;">
          <%= beer_type %>
       </span>
+      <span syle="width:50px; background:<%= color1 %>;">&nbsp;</span>
   <div>
   <div>
     <span class='brewery-name' ><%= brewery %></span>
@@ -68,6 +69,7 @@ $(document).ready(function(){
   
   beerList = new Beers({{menuItems|safe}});
   beerCollectionView = new BeerCollectionView({collection:beerList, el:'#menu-list'});
+  beerCollectionView.center_at(0);
   menuItemDetailView = new MenuItemDetailView({collection:beerList}); 
     
   tweets = new Tweets();

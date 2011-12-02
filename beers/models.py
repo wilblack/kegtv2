@@ -1,6 +1,17 @@
 from django.db import models
 
-# Create your models here.
+beer_colors = [
+     ('#F8F753','Pale lager'),
+     ('#F6F513','Pilsener'),
+     ('#ECE61A','Pilsner Urquell'),
+     ('#BF923B','Weissbier'),
+     ('#BF813A','Brown Ale'),
+     ('#BC6733','IPA'),
+     ('#8D4C32','Dark lager'),
+     ('#0F0B0A','Porter'),
+     ('#080707','Stout'),
+]
+
 
 class Beer(models.Model):
     name = models.CharField(max_length=100)
@@ -33,6 +44,7 @@ class BeerType(models.Model):
     name = models.CharField(max_length=45)
     about = models.TextField(blank=True)    
     color1 = models.CharField(max_length=7,
+                             choices=beer_colors, 
                              default="#FFFFFF",
                              help_text="This is the menu background color for the menu item.")
     
